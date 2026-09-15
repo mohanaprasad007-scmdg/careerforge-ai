@@ -9,10 +9,18 @@ client = OpenAI(
 )
 
 
+# =========================
+# HOME
+# =========================
+
 @app.route("/")
 def home():
     return send_from_directory(".", "index.html")
 
+
+# =========================
+# RESUME ANALYZER
+# =========================
 
 @app.route("/api/analyze-resume", methods=["POST"])
 def analyze_resume():
@@ -21,7 +29,9 @@ def analyze_resume():
     resume = data.get("resume", "").strip()
 
     if not resume:
-        return jsonify({"error": "Resume is empty"}), 400
+        return jsonify({
+            "error": "Resume is empty"
+        }), 400
 
     resume = resume[:20000]
 
@@ -32,17 +42,17 @@ Analyze this resume:
 
 {resume}
 
-Give a concise but useful analysis containing:
+Return:
 
-1. Resume score out of 100
+1. RESUME SCORE out of 100
 2. Strong points
 3. Missing skills
 4. ATS improvements
 5. Project improvements
 6. Recommended career roles
-7. Practical 30-day improvement plan
+7. A practical 30-day improvement plan
 
-Be specific and helpful for a college student.
+Be honest, specific and useful for a college student.
 """
 
     try:
@@ -65,6 +75,10 @@ Be specific and helpful for a college student.
         }), 500
 
 
+# =========================
+# JOB MATCHER
+# =========================
+
 @app.route("/api/job-match", methods=["POST"])
 def job_match():
 
@@ -74,53 +88,44 @@ def job_match():
     job = data.get("job", "").strip()
 
     if not resume:
-        return jsonify({"error": "Resume is empty"}), 400
+        return jsonify({
+            "error": "Resume is required"
+        }), 400
 
     if not job:
-        return jsonify({"error": "Job description is empty"}), 400
+        return jsonify({
+            "error": "Job description is required"
+        }), 400
 
     resume = resume[:18000]
     job = job[:12000]
 
     prompt = f"""
-You are an expert technical recruiter and career advisor.
+You are an expert AI recruitment advisor.
 
-Compare the candidate's resume with the job description.
+Compare this candidate resume with this job description.
 
-CANDIDATE RESUME:
+RESUME:
 {resume}
 
 JOB DESCRIPTION:
 {job}
 
-Provide:
+Return:
 
-1. MATCH SCORE: percentage from 0 to 100.
-
+1. MATCH SCORE: 0-100%
 2. MATCH SUMMARY
-
-3. SKILLS MATCHED
-
+3. MATCHED SKILLS
 4. MISSING SKILLS
-
-5. ATS KEYWORDS
-
+5. IMPORTANT ATS KEYWORDS
 6. EXPERIENCE MATCH
-
 7. PROJECT GAPS
+8. SHOULD APPLY: YES / MAYBE / NO
+9. 5-STEP IMPROVEMENT PLAN
+10. 5 INTERVIEW TOPICS TO PREPARE
 
-8. SHOULD APPLY:
-YES, MAYBE, or NO
-
-9. IMPROVEMENT PLAN:
-5 practical steps.
-
-10. INTERVIEW PREPARATION:
-5 topics to prepare.
-
-Be honest.
-Do not invent experience or skills.
-Keep the answer useful for a college student.
+Be practical and honest.
+Focus on helping a student improve their chances.
 """
 
     try:
@@ -143,6 +148,10 @@ Keep the answer useful for a college student.
         }), 500
 
 
+# =========================
+# ZERO TO CAREER
+# =========================
+
 @app.route("/api/career-guide", methods=["POST"])
 def career_guide():
 
@@ -160,85 +169,70 @@ def career_guide():
     dream = data.get("dream", "").strip()
 
     if not education:
-        return jsonify({"error": "Education is required"}), 400
+        return jsonify({
+            "error": "Education is required"
+        }), 400
 
     prompt = f"""
-You are CareerForge AI, an expert career mentor for college students.
+You are CareerForge AI, an expert career mentor.
 
-Guide this student from their current level toward a realistic career.
+Create a personalized career roadmap for this student.
 
 Education:
 {education}
 
 Year:
-{year or "Not specified"}
+{year}
 
 Interests:
-{interests or "Not specified"}
+{interests}
 
 Strengths:
-{strengths or "Not specified"}
+{strengths}
 
-Dislikes:
-{dislikes or "Not specified"}
+Things they dislike:
+{dislikes}
 
 Preferred work:
-{preference or "Not specified"}
+{preference}
 
 Learning time:
-{time or "Not specified"}
+{time}
 
-Goal:
-{goal or "Not specified"}
+Main goal:
+{goal}
 
-Current level:
-{level or "Complete beginner"}
+Current skill level:
+{level}
 
 Dream career:
-{dream or "I don't know"}
+{dream}
 
-The student may have zero skills and may not know what career to choose.
-
-Create a clear, realistic, future-focused plan.
-
-Include:
+Return:
 
 1. BEST CAREER DIRECTIONS
-Recommend 2-4 paths and rank them.
-
 2. RECOMMENDED PRIMARY PATH
-Choose ONE and explain why.
-
 3. CURRENT STARTING POINT
+4. WHY THIS PATH FITS
+5. SKILLS TO LEARN
+6. FIRST 30 DAYS
+7. MONTHS 2-3
+8. MONTHS 4-6
+9. MONTHS 7-12
+10. PROJECT ROADMAP
+11. HOW TO GET FIRST INTERNSHIP OR JOB
+12. LONG-TERM CAREER PROGRESSION
+13. COMMON MISTAKES TO AVOID
+14. NEXT 3 ACTIONS TO DO TODAY
 
-4. 12-MONTH ROADMAP
-Month 1 through Month 12.
+If the student is a complete beginner, explain everything simply.
 
-5. FIRST 30 DAYS
-Week 1 through Week 4.
+If the goal is entrepreneurship or starting a business,
+include business validation, skills, customer discovery,
+MVP development and realistic first steps.
 
-6. PROJECT ROADMAP
-Easy → Beginner → Intermediate → Portfolio → Capstone.
-
-7. SKILLS TO LEARN
-Technical, communication, problem solving and career skills.
-
-8. CAREER ENTRY PLAN
-When to build portfolio, resume, apply for internships and jobs.
-
-9. CAREER PROGRESSION
-Beginner → Projects → Internship → Entry role → Advanced role.
-
-10. COMMON MISTAKES
-Five mistakes to avoid.
-
-11. NEXT ACTION
-Exactly 3 things to do today.
-
-Do not promise a job or salary.
-Do not recommend learning everything at once.
-Focus on one primary direction.
-Explain WHY before WHAT.
+Do not give generic advice.
+Make the roadmap practical and achievable.
 """
 
     try:
@@ -261,6 +255,10 @@ Explain WHY before WHAT.
         }), 500
 
 
+# =========================
+# CAREER DASHBOARD
+# =========================
+
 @app.route("/api/career-dashboard", methods=["POST"])
 def career_dashboard():
 
@@ -271,70 +269,63 @@ def career_dashboard():
     level = data.get("level", "").strip()
     skills = data.get("skills", "").strip()
     projects = data.get("projects", "").strip()
-    resume_score = data.get("resume_score", "")
-    job_score = data.get("job_score", "")
+    resume_score = data.get("resume_score", "").strip()
+    job_score = data.get("job_score", "").strip()
     completed = data.get("completed", "").strip()
 
-    if not education:
-        return jsonify({
-            "error": "Education is required"
-        }), 400
-
     prompt = f"""
-You are CareerForge AI.
+You are CareerForge AI Career Dashboard.
 
-Create a simple student career dashboard.
+Analyze the student's current career progress.
 
-STUDENT:
-Education: {education}
-Target career: {career or "Not decided"}
-Current level: {level or "Beginner"}
-Skills: {skills or "None yet"}
-Projects: {projects or "None yet"}
-Resume score: {resume_score or "Not tested"}
-Latest job match: {job_score or "Not tested"}
-Completed work: {completed or "Nothing completed yet"}
+Education:
+{education}
 
-The student needs clear future-focused guidance.
+Target career:
+{career}
 
-Return exactly these sections:
+Current level:
+{level}
+
+Skills:
+{skills}
+
+Projects:
+{projects}
+
+Resume score:
+{resume_score}
+
+Job match score:
+{job_score}
+
+Completed work:
+{completed}
+
+Return:
 
 CAREER STATUS
-Give a short assessment.
 
-CAREER READINESS
-Give a score from 0 to 100.
-Explain the score briefly.
+CAREER READINESS SCORE: 0-100
 
-CURRENT STAGE
-Identify the student's current stage:
+CURRENT STAGE:
 STARTING / LEARNING / BUILDING / INTERNSHIP READY / JOB READY
 
 TOP 3 PRIORITIES
-Give exactly 3 priorities.
 
 TODAY'S 3 TASKS
-Give exactly 3 realistic tasks that can be completed today.
 
 THIS WEEK
-Give a 7-day mini plan.
 
 SKILLS TO FOCUS ON
-List the 3 most important skills right now.
 
 NEXT MILESTONE
-Give one measurable milestone.
 
 WHAT NOT TO DO
-Give 3 things the student should avoid.
 
 NEXT CAREER STEP
-Tell the student the single most important next step.
 
-Be encouraging but realistic.
-Do not promise employment.
-Do not overwhelm the student.
-Prioritize actions over theory.
+Make the advice specific and actionable.
 """
 
     try:
@@ -352,10 +343,190 @@ Prioritize actions over theory.
     except Exception as e:
 
         return jsonify({
-            "error": "Dashboard generation failed",
+            "error": "Dashboard analysis failed",
             "details": str(e)
         }), 500
 
+
+# =========================
+# AI INTERVIEW COACH
+# =========================
+
+@app.route("/api/interview", methods=["POST"])
+def interview():
+
+    data = request.get_json() or {}
+
+    role = data.get("role", "").strip()
+    level = data.get("level", "").strip()
+    question = data.get("question", "").strip()
+    answer = data.get("answer", "").strip()
+    history = data.get("history", "")
+
+    if not role:
+        return jsonify({
+            "error": "Target role is required"
+        }), 400
+
+    # First question
+    if not question:
+
+        prompt = f"""
+You are CareerForge AI Interview Coach.
+
+Start a realistic job interview.
+
+Target role:
+{role}
+
+Candidate level:
+{level}
+
+Ask ONE interview question only.
+
+The question should be appropriate for the candidate's
+career level and target role.
+
+Do not provide the answer.
+Do not ask multiple questions.
+
+Return only the interview question.
+"""
+
+    else:
+
+        prompt = f"""
+You are CareerForge AI Interview Coach.
+
+Conduct a realistic interview for:
+
+Target role:
+{role}
+
+Candidate level:
+{level}
+
+Previous interview history:
+{history[:12000]}
+
+Previous question:
+{question}
+
+Candidate answer:
+{answer[:8000]}
+
+Evaluate the answer briefly.
+
+Return:
+
+SCORE: 0-100
+
+WHAT WAS GOOD:
+- ...
+
+WHAT TO IMPROVE:
+- ...
+
+BETTER APPROACH:
+- ...
+
+Then ask ONE next interview question.
+
+The next question should adapt to the candidate's
+previous answer.
+
+Do not ask multiple questions.
+"""
+
+    try:
+
+        response = client.responses.create(
+            model="gpt-5.6-luna",
+            input=prompt
+        )
+
+        return jsonify({
+            "success": True,
+            "answer": response.output_text
+        })
+
+    except Exception as e:
+
+        return jsonify({
+            "error": "Interview coach failed",
+            "details": str(e)
+        }), 500
+
+
+# =========================
+# INTERVIEW FINAL REPORT
+# =========================
+
+@app.route("/api/interview-report", methods=["POST"])
+def interview_report():
+
+    data = request.get_json() or {}
+
+    role = data.get("role", "").strip()
+    history = data.get("history", "")
+
+    if not role:
+        return jsonify({
+            "error": "Target role is required"
+        }), 400
+
+    prompt = f"""
+You are CareerForge AI Interview Coach.
+
+Create a final interview performance report.
+
+Target role:
+{role}
+
+Interview history:
+{history[:20000]}
+
+Return:
+
+1. FINAL INTERVIEW SCORE /100
+2. OVERALL PERFORMANCE
+3. TECHNICAL KNOWLEDGE
+4. COMMUNICATION
+5. PROBLEM SOLVING
+6. CONFIDENCE
+7. STRONGEST AREAS
+8. WEAK AREAS
+9. QUESTIONS TO PRACTICE
+10. 7-DAY INTERVIEW IMPROVEMENT PLAN
+11. JOB READINESS:
+BEGINNER / DEVELOPING / INTERVIEW READY / JOB READY
+
+Be honest but encouraging.
+"""
+
+    try:
+
+        response = client.responses.create(
+            model="gpt-5.6-luna",
+            input=prompt
+        )
+
+        return jsonify({
+            "success": True,
+            "answer": response.output_text
+        })
+
+    except Exception as e:
+
+        return jsonify({
+            "error": "Interview report failed",
+            "details": str(e)
+        }), 500
+
+
+# =========================
+# HEALTH CHECK
+# =========================
 
 @app.route("/api/health")
 def health():
@@ -365,6 +536,10 @@ def health():
         "service": "CareerForge AI"
     })
 
+
+# =========================
+# RUN
+# =========================
 
 if __name__ == "__main__":
 
