@@ -3,475 +3,847 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CareerForge AI</title>
+<meta name="theme-color" content="#070b16">
+<title>CareerForge AI — Build Your Career</title>
+
 <style>
-*{box-sizing:border-box}
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
+
+html{
+ scroll-behavior:smooth;
+}
+
 body{
- margin:0;font-family:Inter,system-ui,Arial,sans-serif;
- color:#f5f7fb;min-height:100vh;
- background:linear-gradient(135deg,#07111f,#111827,#080d18)
+ font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+ background:#070b16;
+ color:#f5f7ff;
+ line-height:1.6;
+ overflow-x:hidden;
 }
-header{
- position:sticky;top:0;z-index:10;padding:18px 6%;
- display:flex;justify-content:space-between;align-items:center;
- background:rgba(7,17,31,.85);backdrop-filter:blur(18px);
- border-bottom:1px solid rgba(255,255,255,.08)
+
+body:before{
+ content:"";
+ position:fixed;
+ width:500px;
+ height:500px;
+ left:-180px;
+ top:-180px;
+ background:radial-gradient(circle,rgba(94,92,255,.22),transparent 65%);
+ pointer-events:none;
 }
-.logo{font-size:23px;font-weight:900}
-.logo span{color:#7da7ff}
-nav{display:flex;gap:8px;flex-wrap:wrap}
-nav a{
- color:#cbd6e5;text-decoration:none;font-size:13px;
- padding:9px 13px;border-radius:11px;
- background:rgba(255,255,255,.06)
+
+body:after{
+ content:"";
+ position:fixed;
+ width:500px;
+ height:500px;
+ right:-220px;
+ bottom:-220px;
+ background:radial-gradient(circle,rgba(0,210,255,.16),transparent 65%);
+ pointer-events:none;
 }
-main{max-width:1200px;margin:auto;padding:50px 6% 70px}
-.hero{text-align:center;padding:45px 0}
+
+a{
+ color:inherit;
+ text-decoration:none;
+}
+
+.container{
+ width:min(1120px,92%);
+ margin:auto;
+}
+
+nav{
+ position:sticky;
+ top:0;
+ z-index:50;
+ backdrop-filter:blur(18px);
+ background:rgba(7,11,22,.72);
+ border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.navbar{
+ height:72px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+}
+
+.logo{
+ font-size:21px;
+ font-weight:900;
+ letter-spacing:-.5px;
+}
+
+.logo span{
+ color:#7c7cff;
+}
+
+.navlinks{
+ display:flex;
+ gap:24px;
+ color:#aeb6ca;
+ font-size:14px;
+}
+
+.navlinks a:hover{
+ color:white;
+}
+
+.hero{
+ padding:92px 0 65px;
+ text-align:center;
+}
+
 .badge{
- display:inline-block;padding:7px 13px;border-radius:30px;
- background:rgba(104,145,255,.12);
- border:1px solid rgba(104,145,255,.22);
- color:#9ebcff;font-size:12px;margin-bottom:15px
+ display:inline-flex;
+ padding:8px 15px;
+ border:1px solid rgba(124,124,255,.3);
+ background:rgba(124,124,255,.1);
+ border-radius:30px;
+ color:#bfc0ff;
+ font-size:13px;
+ font-weight:700;
+ margin-bottom:22px;
 }
+
 h1{
- font-size:clamp(38px,7vw,72px);line-height:1.02;
- margin:0 auto 18px;max-width:850px
+ max-width:850px;
+ margin:auto;
+ font-size:clamp(42px,7vw,76px);
+ line-height:1.02;
+ letter-spacing:-3px;
 }
+
 .gradient{
- background:linear-gradient(90deg,#fff,#8eb5ff,#c59aff);
- -webkit-background-clip:text;background-clip:text;color:transparent
+ background:linear-gradient(90deg,#fff,#9d9dff,#68e7ff);
+ -webkit-background-clip:text;
+ color:transparent;
 }
+
 .hero p{
- color:#9eacc0;font-size:17px;max-width:650px;
- margin:0 auto 28px;line-height:1.6
+ max-width:680px;
+ margin:24px auto 0;
+ color:#aab3c8;
+ font-size:18px;
 }
+
 .buttons{
- display:flex;justify-content:center;gap:10px;flex-wrap:wrap
+ display:flex;
+ justify-content:center;
+ gap:12px;
+ margin-top:32px;
+ flex-wrap:wrap;
 }
+
 .btn{
- border:0;border-radius:13px;padding:13px 19px;
- color:white;text-decoration:none;font-weight:800;cursor:pointer
+ border:0;
+ border-radius:13px;
+ padding:13px 21px;
+ font-size:15px;
+ font-weight:800;
+ cursor:pointer;
+ transition:.2s;
 }
-.primary{background:linear-gradient(135deg,#477fff,#7959ed)}
+
+.btn:hover{
+ transform:translateY(-2px);
+}
+
+.primary{
+ background:linear-gradient(135deg,#7775ff,#4c9dff);
+ color:white;
+ box-shadow:0 10px 35px rgba(83,100,255,.25);
+}
+
 .secondary{
- background:rgba(255,255,255,.07);
- border:1px solid rgba(255,255,255,.1)
-}
-.stats{
- display:grid;grid-template-columns:repeat(3,1fr);
- gap:14px;margin:25px 0 45px
-}
-.card{
- background:rgba(255,255,255,.055);
- border:1px solid rgba(255,255,255,.09);
- border-radius:22px;padding:23px;
- box-shadow:0 18px 50px rgba(0,0,0,.2)
-}
-.stat{text-align:center}
-.stat strong{display:block;font-size:28px}
-.stat small{color:#8e9db0}
-.section-title{text-align:center;margin-bottom:22px}
-.section-title h2{font-size:30px;margin:0 0 8px}
-.section-title p{color:#8f9caf;margin:0}
-.features{
- display:grid;grid-template-columns:repeat(3,1fr);gap:15px
-}
-.feature h3{margin:12px 0 7px}
-.feature p{
- color:#8f9caf;font-size:14px;line-height:1.6;margin:0
-}
-.icon{
- width:45px;height:45px;display:grid;place-items:center;
- border-radius:14px;background:rgba(255,255,255,.08);font-size:22px
-}
-.analyzer{
- margin-top:45px;display:grid;
- grid-template-columns:1fr 1fr;gap:18px
-}
-textarea{
- width:100%;min-height:300px;resize:vertical;
- background:#0c1726;color:white;
+ background:rgba(255,255,255,.06);
+ color:white;
  border:1px solid rgba(255,255,255,.1);
- border-radius:15px;padding:15px;
- font:inherit;outline:none
 }
-textarea:focus{border-color:#6c9cff}
+
+.stats{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:14px;
+ margin:35px 0 70px;
+}
+
+.stat{
+ padding:21px;
+ border:1px solid rgba(255,255,255,.08);
+ background:rgba(255,255,255,.035);
+ border-radius:18px;
+ text-align:center;
+}
+
+.stat strong{
+ display:block;
+ font-size:27px;
+}
+
+.stat span{
+ color:#8993a9;
+ font-size:13px;
+}
+
+.section{
+ padding:65px 0;
+}
+
+.section-title{
+ text-align:center;
+ margin-bottom:38px;
+}
+
+.section-title h2{
+ font-size:38px;
+ letter-spacing:-1.5px;
+}
+
+.section-title p{
+ color:#8993a9;
+ margin-top:8px;
+}
+
+.features{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:17px;
+}
+
+.card{
+ background:rgba(255,255,255,.045);
+ border:1px solid rgba(255,255,255,.08);
+ border-radius:20px;
+ padding:24px;
+ backdrop-filter:blur(15px);
+}
+
+.card:hover{
+ border-color:rgba(124,124,255,.3);
+}
+
+.icon{
+ width:45px;
+ height:45px;
+ display:grid;
+ place-items:center;
+ border-radius:13px;
+ background:rgba(124,124,255,.12);
+ font-size:21px;
+ margin-bottom:17px;
+}
+
+.card h3{
+ font-size:18px;
+ margin-bottom:7px;
+}
+
+.card p{
+ color:#8f99ae;
+ font-size:14px;
+}
+
+.tool{
+ margin-top:25px;
+}
+
+.tool-header{
+ display:flex;
+ align-items:center;
+ gap:14px;
+ margin-bottom:18px;
+}
+
+.tool-header .icon{
+ margin:0;
+}
+
+.tool-header h3{
+ font-size:22px;
+}
+
+textarea{
+ width:100%;
+ min-height:260px;
+ resize:vertical;
+ padding:18px;
+ border-radius:15px;
+ border:1px solid rgba(255,255,255,.1);
+ background:rgba(0,0,0,.25);
+ color:white;
+ outline:none;
+ font:inherit;
+ font-size:14px;
+}
+
+textarea:focus{
+ border-color:#7474ff;
+ box-shadow:0 0 0 3px rgba(116,116,255,.1);
+}
+
+textarea::placeholder{
+ color:#69738a;
+}
+
+.action{
+ margin-top:14px;
+ width:100%;
+}
+
 .result{
- min-height:300px;padding:18px;border-radius:15px;
- background:rgba(0,0,0,.2);color:#aab8ca;
- line-height:1.7
+ margin-top:18px;
+ min-height:100px;
+ padding:22px;
+ border-radius:16px;
+ border:1px solid rgba(255,255,255,.08);
+ background:rgba(0,0,0,.2);
+ color:#c9d0df;
 }
+
+.result h3{
+ color:white;
+ margin-bottom:10px;
+}
+
 .score{
- font-size:52px;font-weight:900;color:#86aaff
+ font-size:44px;
+ font-weight:900;
+ color:#8c8cff;
+ margin-bottom:5px;
 }
-.skills{
- display:flex;flex-wrap:wrap;gap:7px;margin-top:12px
-}
-.skill{
- padding:7px 10px;border-radius:20px;
- background:rgba(255,255,255,.07);font-size:12px
-}
+
 .loading{
- display:flex;align-items:center;gap:10px;
- color:#a9bfff
+ display:flex;
+ align-items:center;
+ gap:9px;
+ color:#aeb4ff;
+ font-weight:700;
 }
+
 .dot{
- width:9px;height:9px;border-radius:50%;
- background:#86aaff;animation:pulse 1s infinite
+ width:9px;
+ height:9px;
+ border-radius:50%;
+ background:#8c8cff;
+ animation:pulse 1s infinite;
 }
+
 @keyframes pulse{
  50%{opacity:.25;transform:scale(.7)}
 }
+
+.job-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:20px;
+}
+
+.label{
+ display:block;
+ font-size:13px;
+ font-weight:800;
+ color:#aeb6ca;
+ margin-bottom:8px;
+}
+
+.job-actions{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+ margin-top:14px;
+}
+
+.clear{
+ background:transparent;
+ border:1px solid rgba(255,255,255,.1);
+ color:#aeb6ca;
+}
+
+.match-box{
+ margin-top:18px;
+ padding:22px;
+ border-radius:17px;
+ border:1px solid rgba(255,255,255,.08);
+ background:rgba(0,0,0,.22);
+}
+
+.match-score{
+ font-size:54px;
+ font-weight:900;
+ background:linear-gradient(90deg,#78e8ff,#8c83ff);
+ -webkit-background-clip:text;
+ color:transparent;
+}
+
+.progress{
+ height:8px;
+ border-radius:20px;
+ background:rgba(255,255,255,.08);
+ overflow:hidden;
+ margin:8px 0 18px;
+}
+
+.progress div{
+ height:100%;
+ width:0;
+ background:linear-gradient(90deg,#68e7ff,#7775ff);
+ transition:1s;
+}
+
 .roadmap{
- display:grid;grid-template-columns:repeat(3,1fr);gap:15px
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ gap:10px;
 }
+
 .step{
- position:relative
+ position:relative;
+ padding:22px 14px;
+ text-align:center;
+ border-radius:17px;
+ background:rgba(255,255,255,.04);
+ border:1px solid rgba(255,255,255,.08);
 }
-.stepnum{
- font-size:13px;color:#9ebcff;font-weight:800
+
+.step strong{
+ display:block;
+ color:#9c9cff;
+ font-size:13px;
+ margin-bottom:8px;
 }
+
+.step span{
+ font-size:14px;
+ font-weight:700;
+}
+
 .cta{
- margin-top:45px;text-align:center;padding:38px;
- background:linear-gradient(
- 135deg,rgba(76,130,255,.13),rgba(160,88,240,.1)
- )
+ text-align:center;
+ margin:70px 0;
+ padding:60px 25px;
+ border-radius:25px;
+ border:1px solid rgba(124,124,255,.18);
+ background:linear-gradient(135deg,rgba(124,124,255,.1),rgba(0,210,255,.05));
 }
+
+.cta h2{
+ font-size:40px;
+ letter-spacing:-1.5px;
+}
+
+.cta p{
+ color:#8f99ae;
+ margin:10px auto 25px;
+ max-width:580px;
+}
+
 footer{
- text-align:center;color:#647388;padding:25px;font-size:12px
+ border-top:1px solid rgba(255,255,255,.07);
+ padding:25px 0;
+ color:#6f788d;
+ font-size:13px;
+ text-align:center;
 }
+
+.hidden{
+ display:none;
+}
+
 @media(max-width:800px){
- .features,.stats,.analyzer,.roadmap{grid-template-columns:1fr}
- header{position:static;align-items:flex-start;flex-direction:column;gap:12px}
- nav a{font-size:12px}
- main{padding:30px 4% 50px}
+ .navlinks{
+  display:none;
+ }
+
+ .stats{
+  grid-template-columns:1fr 1fr;
+ }
+
+ .features{
+  grid-template-columns:1fr;
+ }
+
+ .job-grid{
+  grid-template-columns:1fr;
+ }
+
+ .roadmap{
+  grid-template-columns:1fr;
+ }
+
+ h1{
+  letter-spacing:-2px;
+ }
+
+ .hero{
+  padding-top:65px;
+ }
+
+ .section-title h2{
+  font-size:30px;
+ }
+}
+
+@media(max-width:450px){
+ .stats{
+  grid-template-columns:1fr;
+ }
+
+ .job-actions{
+  grid-template-columns:1fr;
+ }
 }
 </style>
 </head>
 
 <body>
 
-<header>
- <div class="logo">⚡ CareerForge <span>AI</span></div>
- <nav>
-  <a href="#features">Features</a>
-  <a href="#analyzer">Resume AI</a>
-  <a href="#roadmap">Roadmap</a>
-  <a href="#about">About</a>
- </nav>
-</header>
+<nav>
+ <div class="container navbar">
+  <div class="logo">Career<span>Forge</span> AI</div>
+
+  <div class="navlinks">
+   <a href="#tools">AI Tools</a>
+   <a href="#resume">Resume</a>
+   <a href="#jobs">Job Matcher</a>
+   <a href="#roadmap">Roadmap</a>
+  </div>
+ </div>
+</nav>
 
 <main>
 
 <section class="hero">
- <span class="badge">🤖 AI-POWERED CAREER PLATFORM</span>
+ <div class="container">
 
- <h1>
-  Build the career you want with
-  <span class="gradient">AI.</span>
- </h1>
+  <div class="badge">🤖 AI-Powered Career Platform</div>
 
- <p>
-  Analyze your resume, discover missing skills,
-  prepare for interviews and create a personalized
-  roadmap for your career.
- </p>
+  <h1>
+   Build the
+   <span class="gradient">career</span>
+   you want.
+  </h1>
 
- <div class="buttons">
-  <a class="btn primary" href="#analyzer">
-   Analyze My Resume →
-  </a>
-  <a class="btn secondary" href="#features">
-   Explore Features
-  </a>
+  <p>
+   Analyze your resume, match jobs, discover missing skills,
+   prepare for interviews and build a stronger career with AI.
+  </p>
+
+  <div class="buttons">
+   <a class="btn primary" href="#resume">
+    🚀 Analyze My Resume
+   </a>
+
+   <a class="btn secondary" href="#jobs">
+    🎯 Match a Job
+   </a>
+  </div>
+
  </div>
 </section>
 
-<section class="stats">
+<section class="container stats">
 
- <div class="card stat">
+ <div class="stat">
   <strong>AI</strong>
-  <small>Career Intelligence</small>
+  <span>Career Intelligence</span>
  </div>
 
- <div class="card stat">
+ <div class="stat">
+  <strong>100%</strong>
+  <span>Personalized Analysis</span>
+ </div>
+
+ <div class="stat">
   <strong>24/7</strong>
-  <small>Personal Career Assistant</small>
+  <span>Career Assistant</span>
  </div>
 
- <div class="card stat">
+ <div class="stat">
   <strong>∞</strong>
-  <small>Learning Possibilities</small>
+  <span>Growth Potential</span>
  </div>
 
 </section>
 
-<section id="features">
+<section class="section" id="tools">
+ <div class="container">
 
- <div class="section-title">
-  <h2>Everything for your career</h2>
-  <p>One platform from learning to placement.</p>
- </div>
-
- <div class="features">
-
-  <div class="card feature">
-   <div class="icon">📄</div>
-   <h3>Resume Analyzer</h3>
-   <p>
-    Analyze your resume with AI and discover weaknesses,
-    missing keywords and improvements.
-   </p>
+  <div class="section-title">
+   <h2>Everything for your career</h2>
+   <p>One platform to understand where you are and where to go next.</p>
   </div>
 
-  <div class="card feature">
-   <div class="icon">🎯</div>
-   <h3>Job Matcher</h3>
-   <p>
-    Compare your skills with job requirements and
-    discover exactly what you need to learn.
-   </p>
-  </div>
+  <div class="features">
 
-  <div class="card feature">
-   <div class="icon">🤖</div>
-   <h3>AI Career Advisor</h3>
-   <p>
-    Get personalized career recommendations based
-    on your skills, interests and goals.
-   </p>
-  </div>
+   <div class="card">
+    <div class="icon">📄</div>
+    <h3>AI Resume Analyzer</h3>
+    <p>
+     Get an AI-powered resume score, ATS improvements,
+     missing skills and career recommendations.
+    </p>
+   </div>
 
-  <div class="card feature">
-   <div class="icon">🎤</div>
-   <h3>Interview Coach</h3>
-   <p>
-    Practice technical and HR interviews with
-    AI-generated questions and feedback.
-   </p>
-  </div>
+   <div class="card">
+    <div class="icon">🎯</div>
+    <h3>AI Job Matcher</h3>
+    <p>
+     Compare your resume with any job description
+     and discover your real match percentage.
+    </p>
+   </div>
 
-  <div class="card feature">
-   <div class="icon">💻</div>
-   <h3>Coding Practice</h3>
-   <p>
-    Practice programming problems matched to your
-    current level and target role.
-   </p>
-  </div>
+   <div class="card">
+    <div class="icon">🧠</div>
+    <h3>Career Advisor</h3>
+    <p>
+     Discover suitable roles and the skills you should
+     learn to reach your career goals.
+    </p>
+   </div>
 
-  <div class="card feature">
-   <div class="icon">📈</div>
-   <h3>Career Score</h3>
-   <p>
-    Track your resume, skills, projects, coding and
-    interview readiness in one score.
-   </p>
-  </div>
+   <div class="card">
+    <div class="icon">🎤</div>
+    <h3>Interview Coach</h3>
+    <p>
+     Practice technical and HR interviews and improve
+     your answers with AI feedback.
+    </p>
+   </div>
 
+   <div class="card">
+    <div class="icon">💻</div>
+    <h3>Coding Practice</h3>
+    <p>
+     Improve programming, DSA and problem-solving skills
+     with structured practice.
+    </p>
+   </div>
+
+   <div class="card">
+    <div class="icon">📊</div>
+    <h3>Career Score</h3>
+    <p>
+     Track your overall career readiness across resume,
+     skills, projects, coding and interviews.
+    </p>
+   </div>
+
+  </div>
  </div>
 </section>
 
-<section id="analyzer" class="analyzer">
+<section class="section" id="resume">
+ <div class="container">
 
- <div class="card">
-
-  <div class="section-title" style="text-align:left">
-   <h2>📄 AI Resume Analyzer</h2>
-   <p>
-    Paste your resume and let CareerForge analyze it.
-   </p>
+  <div class="section-title">
+   <h2>🤖 AI Resume Analyzer</h2>
+   <p>Paste your resume and let CareerForge find your strengths and gaps.</p>
   </div>
 
-  <textarea id="resume"
-   placeholder="Paste your resume here...
+  <div class="card tool">
+
+   <div class="tool-header">
+    <div class="icon">📄</div>
+    <h3>Analyze your resume</h3>
+   </div>
+
+   <textarea
+    id="resume"
+    placeholder="Paste your complete resume here...
 
 Example:
+Name
+Education
+Skills
+Projects
+Internships
+Certifications
+Achievements"
+   ></textarea>
 
-Computer Science student
-Skills: Java, Python, HTML, CSS
-Projects: Expense Tracker
-Education: B.E. Computer Science
-Internship: Web Development
-GitHub: github.com/example"></textarea>
+   <button
+    id="analyzeBtn"
+    class="btn primary action"
+    onclick="analyzeResume()"
+   >
+    🤖 Analyze With AI
+   </button>
 
-  <button
-   id="analyzeBtn"
-   class="btn primary"
-   style="margin-top:10px;width:100%"
-   onclick="analyzeResume()">
-   🤖 Analyze With AI
-  </button>
+   <div id="resumeResult" class="result">
+    <div class="score">--</div>
+    <p>Your AI resume analysis will appear here.</p>
+   </div>
 
- </div>
-
- <div class="card">
-
-  <div class="section-title" style="text-align:left">
-   <h2>📊 AI Career Analysis</h2>
-   <p>Personalized feedback from your resume.</p>
   </div>
-
-  <div id="result" class="result">
-   <div class="score">--</div>
-
-   <p>
-    Your AI analysis will appear here.
-   </p>
-
-   <p>
-    <span class="skill">Resume Score</span>
-    <span class="skill">Skills</span>
-    <span class="skill">ATS</span>
-    <span class="skill">Career Roles</span>
-   </p>
-  </div>
-
  </div>
-
 </section>
 
-<section id="roadmap" style="margin-top:50px">
+<section class="section" id="jobs">
+ <div class="container">
 
- <div class="section-title">
-  <h2>🗺️ Career Roadmap</h2>
+  <div class="section-title">
+   <h2>🎯 AI Job Matcher</h2>
+   <p>Find out how well your resume matches a real job.</p>
+  </div>
+
+  <div class="job-grid">
+
+   <div class="card">
+
+    <div class="tool-header">
+     <div class="icon">📄</div>
+     <h3>Your Resume</h3>
+    </div>
+
+    <label class="label" for="jobResume">
+     Paste your resume
+    </label>
+
+    <textarea
+     id="jobResume"
+     placeholder="Paste your resume here..."
+    ></textarea>
+
+   </div>
+
+   <div class="card">
+
+    <div class="tool-header">
+     <div class="icon">💼</div>
+     <h3>Job Description</h3>
+    </div>
+
+    <label class="label" for="jobDescription">
+     Paste the job description
+    </label>
+
+    <textarea
+     id="jobDescription"
+     placeholder="Paste the job description here...
+
+Example:
+We are looking for a Python Developer with
+Flask, SQL, Git and REST API experience..."
+    ></textarea>
+
+   </div>
+
+  </div>
+
+  <div class="card tool">
+
+   <div class="job-actions">
+
+    <button
+     id="matchBtn"
+     class="btn primary"
+     onclick="matchJob()"
+    >
+     🎯 Match This Job
+    </button>
+
+    <button
+     class="btn clear"
+     onclick="clearJobMatcher()"
+    >
+     Clear
+    </button>
+
+   </div>
+
+   <div id="jobResult" class="match-box">
+
+    <div class="match-score">--%</div>
+
+    <h3>Ready to match</h3>
+
+    <p>
+     Add your resume and a job description to see
+     your compatibility score and personalized advice.
+    </p>
+
+   </div>
+
+  </div>
+
+ </div>
+</section>
+
+<section class="section" id="roadmap">
+ <div class="container">
+
+  <div class="section-title">
+   <h2>🗺️ Your Career Journey</h2>
+   <p>A simple path from student to professional.</p>
+  </div>
+
+  <div class="roadmap">
+
+   <div class="step">
+    <strong>STEP 01</strong>
+    <span>Build Skills</span>
+   </div>
+
+   <div class="step">
+    <strong>STEP 02</strong>
+    <span>Create Projects</span>
+   </div>
+
+   <div class="step">
+    <strong>STEP 03</strong>
+    <span>Improve Resume</span>
+   </div>
+
+   <div class="step">
+    <strong>STEP 04</strong>
+    <span>Apply for Jobs</span>
+   </div>
+
+   <div class="step">
+    <strong>STEP 05</strong>
+    <span>Crack Interviews</span>
+   </div>
+
+  </div>
+
+ </div>
+</section>
+
+<section class="container">
+ <div class="cta">
+
+  <h2>Your next career move starts here.</h2>
+
   <p>
-   A simple path from student to job-ready professional.
+   Use AI to understand your current position,
+   identify what you're missing and build a plan
+   to become job-ready.
   </p>
- </div>
 
- <div class="roadmap">
-
-  <div class="card step">
-   <span class="stepnum">STEP 01</span>
-   <h3>🌱 Foundation</h3>
-   <p>
-    Learn programming fundamentals, Git, problem solving,
-    communication and core computer science.
-   </p>
-  </div>
-
-  <div class="card step">
-   <span class="stepnum">STEP 02</span>
-   <h3>🛠️ Build</h3>
-   <p>
-    Create real projects, improve your GitHub portfolio
-    and learn technologies used by companies.
-   </p>
-  </div>
-
-  <div class="card step">
-   <span class="stepnum">STEP 03</span>
-   <h3>🚀 Get Hired</h3>
-   <p>
-    Improve your resume, practice interviews,
-    solve coding problems and apply strategically.
-   </p>
-  </div>
+  <a class="btn primary" href="#resume">
+   🚀 Start Career Analysis
+  </a>
 
  </div>
-</section>
-
-<section class="cta" id="about">
-
- <h2>🚀 Your career is a project.</h2>
-
- <p style="color:#9eacc0">
-  Build it. Measure it. Improve it.
- </p>
-
- <a class="btn primary" href="#analyzer">
-  Start Building →
- </a>
-
 </section>
 
 </main>
 
 <footer>
- CareerForge AI • AI Career Growth Platform
+ <div class="container">
+  CareerForge AI • AI-powered career growth platform
+ </div>
 </footer>
 
 <script>
-async function analyzeResume(){
-
- const resume=document.getElementById("resume").value.trim();
- const result=document.getElementById("result");
- const button=document.getElementById("analyzeBtn");
-
- if(!resume){
-  result.innerHTML=
-   '<div class="score">--</div>'+
-   '<p>⚠️ Please paste your resume first.</p>';
-  return;
- }
-
- button.disabled=true;
- button.textContent="🤖 AI Analyzing...";
-
- result.innerHTML=`
-  <div class="loading">
-   <span class="dot"></span>
-   AI is analyzing your resume...
-  </div>
-  <p>
-   Checking skills, projects, ATS quality,
-   career roles and improvement areas.
-  </p>
- `;
-
- try{
-
-  const response=await fetch("/api/analyze-resume",{
-   method:"POST",
-   headers:{
-    "Content-Type":"application/json"
-   },
-   body:JSON.stringify({
-    resume:resume
-   })
-  });
-
-  const data=await response.json();
-
-  if(!response.ok){
-   throw new Error(
-    data.error||"AI analysis failed"
-   );
-  }
-
-  result.innerHTML=`
-   <div class="score">✓</div>
-   <h3>AI Analysis Complete</h3>
-   <div style="white-space:pre-wrap">
-    ${escapeHtml(data.answer||"No analysis returned.")}
-   </div>
-  `;
-
- }catch(error){
-
-  result.innerHTML=`
-   <div class="score">!</div>
-   <h3>Analysis Failed</h3>
-   <p>
-    ${escapeHtml(error.message)}
-   </p>
-   <p>
-    Please check that the backend and AI API are configured.
-   </p>
-  `;
-
- }finally{
-
-  button.disabled=false;
-  button.textContent="🤖 Analyze With AI";
-
- }
-
-}
-
 function escapeHtml(text){
-
  return String(text).replace(
   /[&<>"']/g,
   function(char){
@@ -484,9 +856,291 @@ function escapeHtml(text){
    }[char];
   }
  );
-
 }
+
+async function analyzeResume(){
+
+ const resume=document
+  .getElementById("resume")
+  .value
+  .trim();
+
+ const result=document.getElementById("resumeResult");
+ const button=document.getElementById("analyzeBtn");
+
+ if(!resume){
+
+  result.innerHTML=
+   '<div class="score">!</div>'+
+   '<h3>Resume Required</h3>'+
+   '<p>Please paste your resume first.</p>';
+
+  return;
+ }
+
+ button.disabled=true;
+ button.textContent="🤖 AI Analyzing...";
+
+ result.innerHTML=
+  '<div class="loading">'+
+  '<span class="dot"></span>'+
+  'AI is analyzing your resume...'+
+  '</div>'+
+  '<p>Checking skills, projects, ATS quality, career roles and improvement areas.</p>';
+
+ try{
+
+  const response=await fetch(
+   "/api/analyze-resume",
+   {
+    method:"POST",
+    headers:{
+     "Content-Type":"application/json"
+    },
+    body:JSON.stringify({
+     resume:resume
+    })
+   }
+  );
+
+  const data=await response.json();
+
+  if(!response.ok){
+   throw new Error(
+    data.error||"AI analysis failed"
+   );
+  }
+
+  result.innerHTML=
+   '<div class="score">✓</div>'+
+   '<h3>AI Analysis Complete</h3>'+
+   '<div style="white-space:pre-wrap">'+
+   escapeHtml(
+    data.answer||
+    "No analysis returned."
+   )+
+   '</div>';
+
+ }catch(error){
+
+  result.innerHTML=
+   '<div class="score">!</div>'+
+   '<h3>Analysis Failed</h3>'+
+   '<p>'+
+   escapeHtml(error.message)+
+   '</p>'+
+   '<p>Please check the backend and AI API configuration.</p>';
+
+ }finally{
+
+  button.disabled=false;
+  button.textContent="🤖 Analyze With AI";
+
+ }
+}
+
+
+async function matchJob(){
+
+ const resume=document
+  .getElementById("jobResume")
+  .value
+  .trim();
+
+ const job=document
+  .getElementById("jobDescription")
+  .value
+  .trim();
+
+ const result=document.getElementById("jobResult");
+ const button=document.getElementById("matchBtn");
+
+ if(!resume){
+
+  result.innerHTML=
+   '<div class="match-score">!</div>'+
+   '<h3>Resume Required</h3>'+
+   '<p>Please paste your resume first.</p>';
+
+  return;
+ }
+
+ if(!job){
+
+  result.innerHTML=
+   '<div class="match-score">!</div>'+
+   '<h3>Job Description Required</h3>'+
+   '<p>Please paste the job description.</p>';
+
+  return;
+ }
+
+ button.disabled=true;
+ button.textContent="🤖 Matching...";
+
+ result.innerHTML=
+  '<div class="loading">'+
+  '<span class="dot"></span>'+
+  'AI is comparing your resume with the job...'+
+  '</div>'+
+  '<p>Checking skills, experience, ATS keywords and career fit.</p>';
+
+ try{
+
+  const response=await fetch(
+   "/api/job-match",
+   {
+    method:"POST",
+    headers:{
+     "Content-Type":"application/json"
+    },
+    body:JSON.stringify({
+     resume:resume,
+     job:job
+    })
+   }
+  );
+
+  const data=await response.json();
+
+  if(!response.ok){
+   throw new Error(
+    data.error||
+    "Job matching failed"
+   );
+  }
+
+  const answer=data.answer||"No analysis returned.";
+
+  const score=findScore(answer);
+
+  result.innerHTML=
+   '<div class="match-score">'+
+   (score!==null?score:"--")+
+   '%</div>'+
+   '<div class="progress">'+
+   '<div id="matchProgress"></div>'+
+   '</div>'+
+   '<h3>🎯 AI Job Match Analysis</h3>'+
+   '<div style="white-space:pre-wrap">'+
+   escapeHtml(answer)+
+   '</div>';
+
+  if(score!==null){
+
+   setTimeout(function(){
+
+    const bar=
+     document.getElementById(
+      "matchProgress"
+     );
+
+    if(bar){
+     bar.style.width=
+      Math.max(0,Math.min(100,score))+
+      "%";
+    }
+
+   },100);
+
+  }
+
+ }catch(error){
+
+  result.innerHTML=
+   '<div class="match-score">!</div>'+
+   '<h3>Matching Failed</h3>'+
+   '<p>'+
+   escapeHtml(error.message)+
+   '</p>'+
+   '<p>Make sure your Render deployment has completed.</p>';
+
+ }finally{
+
+  button.disabled=false;
+  button.textContent="🎯 Match This Job";
+
+ }
+}
+
+
+function findScore(text){
+
+ const patterns=[
+  /MATCH SCORE\s*[:\-]\s*(\d{1,3})\s*%/i,
+  /MATCH\s*[:\-]\s*(\d{1,3})\s*%/i,
+  /(\d{1,3})\s*%\s*(?:match|matched)/i,
+  /score\s*(?:is|:|-)\s*(\d{1,3})/i
+ ];
+
+ for(let i=0;i<patterns.length;i++){
+
+  const match=text.match(patterns[i]);
+
+  if(match){
+   const value=parseInt(match[1],10);
+
+   if(value>=0 && value<=100){
+    return value;
+   }
+  }
+ }
+
+ return null;
+}
+
+
+function clearJobMatcher(){
+
+ document.getElementById(
+  "jobResume"
+ ).value="";
+
+ document.getElementById(
+  "jobDescription"
+ ).value="";
+
+ document.getElementById(
+  "jobResult"
+ ).innerHTML=
+  '<div class="match-score">--%</div>'+
+  '<h3>Ready to match</h3>'+
+  '<p>Add your resume and a job description to see your compatibility score and personalized advice.</p>';
+}
+
+
+function copyResumeToMatcher(){
+
+ const resume=
+  document.getElementById("resume")
+  .value;
+
+ document.getElementById(
+  "jobResume"
+ ).value=resume;
+
+ document.getElementById(
+  "jobs"
+ ).scrollIntoView({
+  behavior:"smooth"
+ });
+}
+
+
+document
+ .getElementById("resume")
+ .addEventListener(
+  "input",
+  function(){
+   if(
+    this.value.length>0 &&
+    this.value.length<100
+   ){
+    /* Resume input detected */
+   }
+  }
+ );
 </script>
 
 </body>
-</html>
+ </html>
