@@ -122,7 +122,7 @@ Give 5 practical steps the candidate should take to become a stronger applicant.
 10. INTERVIEW PREPARATION:
 Give 5 topics the candidate should prepare for this specific job.
 
-Be honest. Do not invent experience or skills that are not present in the resume.
+Be honest. Do not invent experience or skills.
 Keep the answer easy to understand for a college student.
 """
 
@@ -140,6 +140,185 @@ Keep the answer easy to understand for a college student.
     except Exception as e:
         return jsonify({
             "error": "Job matching failed",
+            "details": str(e)
+        }), 500
+
+
+@app.route("/api/career-guide", methods=["POST"])
+def career_guide():
+    data = request.get_json() or {}
+
+    education = data.get("education", "").strip()
+    year = data.get("year", "").strip()
+    interests = data.get("interests", "").strip()
+    strengths = data.get("strengths", "").strip()
+    dislikes = data.get("dislikes", "").strip()
+    preference = data.get("preference", "").strip()
+    time = data.get("time", "").strip()
+    goal = data.get("goal", "").strip()
+    level = data.get("level", "").strip()
+    dream = data.get("dream", "").strip()
+
+    if not education:
+        return jsonify({"error": "Education is required"}), 400
+
+    prompt = f"""
+You are CareerForge AI, an expert career mentor for college students.
+
+Your job is to guide students from ZERO knowledge to a realistic career.
+
+STUDENT INFORMATION
+
+Education:
+{education}
+
+Year:
+{year or "Not specified"}
+
+Interests:
+{interests or "Not specified"}
+
+Strengths:
+{strengths or "Not specified"}
+
+Things they dislike:
+{dislikes or "Not specified"}
+
+Preferred type of work:
+{preference or "Not specified"}
+
+Available learning time:
+{time or "Not specified"}
+
+Main goal:
+{goal or "Not specified"}
+
+Current skill level:
+{level or "Complete beginner"}
+
+Dream career:
+{dream or "I don't know"}
+
+IMPORTANT:
+The student may have zero skills and may not know what career to choose.
+
+Do NOT simply give a generic list of courses.
+
+Analyze the student's situation and create a clear, realistic and future-focused direction.
+
+Your response MUST contain:
+
+1. 🎯 BEST CAREER DIRECTIONS
+Recommend 2-4 suitable career paths.
+Rank them from strongest to weakest.
+
+For each path explain:
+- Why it fits
+- What the student will actually do in that career
+- Important skills
+- Difficulty for this student
+- Possible entry-level roles
+
+2. ⭐ RECOMMENDED PRIMARY PATH
+Choose ONE primary path.
+Explain why you selected it.
+If the student has no clear preference, choose based on their information and clearly say that this is a recommendation, not a guarantee.
+
+3. 📊 CURRENT STARTING POINT
+Explain what the student knows and what they need to learn.
+Assume beginner level when information is missing.
+
+4. 🗺️ 12-MONTH ROADMAP
+Create a month-by-month roadmap.
+
+Include:
+Month 1
+Month 2
+Month 3
+...
+Month 12
+
+For every stage include:
+- What to learn
+- Why it matters
+- What to practice
+- What output/project should be completed
+
+5. 📅 FIRST 30 DAYS
+Create a practical beginner plan.
+
+Week 1
+Week 2
+Week 3
+Week 4
+
+Keep it achievable with the student's available time.
+
+6. 🚀 PROJECT ROADMAP
+Recommend projects in this order:
+- Very easy first project
+- Beginner project
+- Intermediate project
+- Portfolio project
+- Advanced/capstone project
+
+Explain what each project proves.
+
+7. 🧠 SKILLS TO LEARN
+Separate into:
+- Technical skills
+- Communication skills
+- Problem solving
+- Career skills
+
+Prioritize them.
+
+8. 💼 CAREER ENTRY PLAN
+Explain when the student should start:
+- Building GitHub/portfolio
+- Creating a resume
+- Applying for internships
+- Applying for jobs
+- Preparing for interviews
+
+9. 📈 CAREER PROGRESSION
+Show a realistic progression such as:
+
+Beginner
+→ Student projects
+→ Internship
+→ Entry-level role
+→ Professional
+→ Advanced role
+
+10. ⚠️ COMMON MISTAKES
+Give 5 mistakes this student should avoid.
+
+11. 🔥 NEXT ACTION
+End with exactly 3 things the student should do TODAY.
+
+Be encouraging but honest.
+Do not promise a job or salary.
+Do not recommend learning everything at once.
+Focus on one primary career direction.
+Explain WHY before WHAT.
+Use simple language suitable for a college student.
+"""
+
+    try:
+        response = client.responses.create(
+            model="gpt-5.6-luna",
+            input=prompt
+        )
+
+        return jsonify({
+            "success": True,
+            "answer": response.output_text
+        })
+
+    except Exception as e:
+        return jsonify({
+            "error": "Career guidance failed",
             "details": str(e)
         }), 500
 
