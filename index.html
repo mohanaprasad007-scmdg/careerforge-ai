@@ -4,499 +4,207 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#070b16">
-<title>CareerForge AI — Build Your Career</title>
+<title>CareerForge AI — Your Career Starts Here</title>
 
 <style>
-*{
- box-sizing:border-box;
- margin:0;
- padding:0;
-}
-
-html{
- scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
- background:#070b16;
- color:#f5f7ff;
- line-height:1.6;
- overflow-x:hidden;
+ background:#070b16;color:#f5f7ff;line-height:1.6;overflow-x:hidden
 }
-
 body:before{
- content:"";
- position:fixed;
- width:500px;
- height:500px;
- left:-180px;
- top:-180px;
+ content:"";position:fixed;width:500px;height:500px;left:-180px;top:-180px;
  background:radial-gradient(circle,rgba(94,92,255,.22),transparent 65%);
- pointer-events:none;
+ pointer-events:none
 }
-
 body:after{
- content:"";
- position:fixed;
- width:500px;
- height:500px;
- right:-220px;
- bottom:-220px;
+ content:"";position:fixed;width:500px;height:500px;right:-220px;bottom:-220px;
  background:radial-gradient(circle,rgba(0,210,255,.16),transparent 65%);
- pointer-events:none;
+ pointer-events:none
 }
-
-a{
- color:inherit;
- text-decoration:none;
-}
-
-.container{
- width:min(1120px,92%);
- margin:auto;
-}
-
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,92%);margin:auto}
 nav{
- position:sticky;
- top:0;
- z-index:50;
- backdrop-filter:blur(18px);
- background:rgba(7,11,22,.72);
- border-bottom:1px solid rgba(255,255,255,.08);
+ position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);
+ background:rgba(7,11,22,.75);border-bottom:1px solid rgba(255,255,255,.08)
 }
+.navbar{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:21px;font-weight:900}
+.logo span{color:#7c7cff}
+.navlinks{display:flex;gap:22px;color:#aeb6ca;font-size:14px}
+.navlinks a:hover{color:white}
 
-.navbar{
- height:72px;
- display:flex;
- align-items:center;
- justify-content:space-between;
-}
-
-.logo{
- font-size:21px;
- font-weight:900;
- letter-spacing:-.5px;
-}
-
-.logo span{
- color:#7c7cff;
-}
-
-.navlinks{
- display:flex;
- gap:24px;
- color:#aeb6ca;
- font-size:14px;
-}
-
-.navlinks a:hover{
- color:white;
-}
-
-.hero{
- padding:92px 0 65px;
- text-align:center;
-}
-
+.hero{padding:88px 0 60px;text-align:center}
 .badge{
- display:inline-flex;
- padding:8px 15px;
- border:1px solid rgba(124,124,255,.3);
- background:rgba(124,124,255,.1);
- border-radius:30px;
- color:#bfc0ff;
- font-size:13px;
- font-weight:700;
- margin-bottom:22px;
+ display:inline-flex;padding:8px 15px;border:1px solid rgba(124,124,255,.3);
+ background:rgba(124,124,255,.1);border-radius:30px;color:#bfc0ff;
+ font-size:13px;font-weight:700;margin-bottom:22px
 }
-
 h1{
- max-width:850px;
- margin:auto;
- font-size:clamp(42px,7vw,76px);
- line-height:1.02;
- letter-spacing:-3px;
+ max-width:850px;margin:auto;font-size:clamp(42px,7vw,76px);
+ line-height:1.02;letter-spacing:-3px
 }
-
 .gradient{
  background:linear-gradient(90deg,#fff,#9d9dff,#68e7ff);
- -webkit-background-clip:text;
- color:transparent;
+ -webkit-background-clip:text;color:transparent
 }
-
-.hero p{
- max-width:680px;
- margin:24px auto 0;
- color:#aab3c8;
- font-size:18px;
-}
-
-.buttons{
- display:flex;
- justify-content:center;
- gap:12px;
- margin-top:32px;
- flex-wrap:wrap;
-}
-
+.hero p{max-width:700px;margin:24px auto 0;color:#aab3c8;font-size:18px}
+.buttons{display:flex;justify-content:center;gap:12px;margin-top:32px;flex-wrap:wrap}
 .btn{
- border:0;
- border-radius:13px;
- padding:13px 21px;
- font-size:15px;
- font-weight:800;
- cursor:pointer;
- transition:.2s;
+ border:0;border-radius:13px;padding:13px 21px;font-size:15px;
+ font-weight:800;cursor:pointer;transition:.2s
 }
-
-.btn:hover{
- transform:translateY(-2px);
-}
-
+.btn:hover{transform:translateY(-2px)}
 .primary{
- background:linear-gradient(135deg,#7775ff,#4c9dff);
- color:white;
- box-shadow:0 10px 35px rgba(83,100,255,.25);
+ background:linear-gradient(135deg,#7775ff,#4c9dff);color:white;
+ box-shadow:0 10px 35px rgba(83,100,255,.25)
 }
-
 .secondary{
- background:rgba(255,255,255,.06);
- color:white;
- border:1px solid rgba(255,255,255,.1);
+ background:rgba(255,255,255,.06);color:white;
+ border:1px solid rgba(255,255,255,.1)
 }
-
-.stats{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:14px;
- margin:35px 0 70px;
-}
-
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0 70px}
 .stat{
- padding:21px;
- border:1px solid rgba(255,255,255,.08);
- background:rgba(255,255,255,.035);
- border-radius:18px;
- text-align:center;
+ padding:21px;border:1px solid rgba(255,255,255,.08);
+ background:rgba(255,255,255,.035);border-radius:18px;text-align:center
 }
+.stat strong{display:block;font-size:27px}
+.stat span{color:#8993a9;font-size:13px}
 
-.stat strong{
- display:block;
- font-size:27px;
-}
-
-.stat span{
- color:#8993a9;
- font-size:13px;
-}
-
-.section{
- padding:65px 0;
-}
-
-.section-title{
- text-align:center;
- margin-bottom:38px;
-}
-
-.section-title h2{
- font-size:38px;
- letter-spacing:-1.5px;
-}
-
-.section-title p{
- color:#8993a9;
- margin-top:8px;
-}
-
-.features{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:17px;
-}
-
+.section{padding:65px 0}
+.section-title{text-align:center;margin-bottom:38px}
+.section-title h2{font-size:38px;letter-spacing:-1.5px}
+.section-title p{color:#8993a9;margin-top:8px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
 .card{
- background:rgba(255,255,255,.045);
- border:1px solid rgba(255,255,255,.08);
- border-radius:20px;
- padding:24px;
- backdrop-filter:blur(15px);
+ background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);
+ border-radius:20px;padding:24px;backdrop-filter:blur(15px)
 }
-
-.card:hover{
- border-color:rgba(124,124,255,.3);
-}
-
+.card:hover{border-color:rgba(124,124,255,.3)}
 .icon{
- width:45px;
- height:45px;
- display:grid;
- place-items:center;
- border-radius:13px;
- background:rgba(124,124,255,.12);
- font-size:21px;
- margin-bottom:17px;
+ width:45px;height:45px;display:grid;place-items:center;border-radius:13px;
+ background:rgba(124,124,255,.12);font-size:21px;margin-bottom:17px
 }
+.card h3{font-size:18px;margin-bottom:7px}
+.card p{color:#8f99ae;font-size:14px}
 
-.card h3{
- font-size:18px;
- margin-bottom:7px;
-}
+.tool{margin-top:25px}
+.tool-header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.tool-header .icon{margin:0}
+.tool-header h3{font-size:22px}
 
-.card p{
- color:#8f99ae;
- font-size:14px;
-}
-
-.tool{
- margin-top:25px;
-}
-
-.tool-header{
- display:flex;
- align-items:center;
- gap:14px;
- margin-bottom:18px;
-}
-
-.tool-header .icon{
- margin:0;
-}
-
-.tool-header h3{
- font-size:22px;
-}
-
-textarea{
- width:100%;
- min-height:260px;
- resize:vertical;
- padding:18px;
- border-radius:15px;
+textarea,select,input{
+ width:100%;padding:15px;border-radius:14px;
  border:1px solid rgba(255,255,255,.1);
- background:rgba(0,0,0,.25);
- color:white;
- outline:none;
- font:inherit;
- font-size:14px;
+ background:rgba(0,0,0,.25);color:white;outline:none;font:inherit
 }
-
-textarea:focus{
- border-color:#7474ff;
- box-shadow:0 0 0 3px rgba(116,116,255,.1);
+textarea{min-height:240px;resize:vertical;font-size:14px}
+textarea:focus,input:focus,select:focus{
+ border-color:#7474ff;box-shadow:0 0 0 3px rgba(116,116,255,.1)
 }
-
-textarea::placeholder{
- color:#69738a;
-}
-
-.action{
- margin-top:14px;
- width:100%;
-}
-
-.result{
- margin-top:18px;
- min-height:100px;
- padding:22px;
- border-radius:16px;
- border:1px solid rgba(255,255,255,.08);
- background:rgba(0,0,0,.2);
- color:#c9d0df;
-}
-
-.result h3{
- color:white;
- margin-bottom:10px;
-}
-
-.score{
- font-size:44px;
- font-weight:900;
- color:#8c8cff;
- margin-bottom:5px;
-}
-
-.loading{
- display:flex;
- align-items:center;
- gap:9px;
- color:#aeb4ff;
- font-weight:700;
-}
-
-.dot{
- width:9px;
- height:9px;
- border-radius:50%;
- background:#8c8cff;
- animation:pulse 1s infinite;
-}
-
-@keyframes pulse{
- 50%{opacity:.25;transform:scale(.7)}
-}
-
-.job-grid{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:20px;
-}
-
+textarea::placeholder,input::placeholder{color:#69738a}
+select option{background:#101522;color:white}
 .label{
- display:block;
- font-size:13px;
- font-weight:800;
- color:#aeb6ca;
- margin-bottom:8px;
+ display:block;font-size:13px;font-weight:800;color:#aeb6ca;margin-bottom:7px
 }
+.field{margin-bottom:16px}
 
-.job-actions{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:12px;
- margin-top:14px;
+.action{margin-top:14px;width:100%}
+.result{
+ margin-top:18px;min-height:100px;padding:22px;border-radius:16px;
+ border:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2);
+ color:#c9d0df
 }
-
-.clear{
- background:transparent;
- border:1px solid rgba(255,255,255,.1);
- color:#aeb6ca;
+.result h3{color:white;margin-bottom:10px}
+.score{
+ font-size:44px;font-weight:900;color:#8c8cff;margin-bottom:5px
 }
+.loading{display:flex;align-items:center;gap:9px;color:#aeb4ff;font-weight:700}
+.dot{
+ width:9px;height:9px;border-radius:50%;background:#8c8cff;
+ animation:pulse 1s infinite
+}
+@keyframes pulse{50%{opacity:.25;transform:scale(.7)}}
 
+.job-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.job-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.clear{background:transparent;border:1px solid rgba(255,255,255,.1);color:#aeb6ca}
 .match-box{
- margin-top:18px;
- padding:22px;
- border-radius:17px;
- border:1px solid rgba(255,255,255,.08);
- background:rgba(0,0,0,.22);
+ margin-top:18px;padding:22px;border-radius:17px;
+ border:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.22)
 }
-
 .match-score{
- font-size:54px;
- font-weight:900;
+ font-size:54px;font-weight:900;
  background:linear-gradient(90deg,#78e8ff,#8c83ff);
- -webkit-background-clip:text;
- color:transparent;
+ -webkit-background-clip:text;color:transparent
 }
-
 .progress{
- height:8px;
- border-radius:20px;
- background:rgba(255,255,255,.08);
- overflow:hidden;
- margin:8px 0 18px;
+ height:8px;border-radius:20px;background:rgba(255,255,255,.08);
+ overflow:hidden;margin:8px 0 18px
 }
-
 .progress div{
- height:100%;
- width:0;
- background:linear-gradient(90deg,#68e7ff,#7775ff);
- transition:1s;
+ height:100%;width:0;background:linear-gradient(90deg,#68e7ff,#7775ff);
+ transition:1s
 }
 
-.roadmap{
- display:grid;
- grid-template-columns:repeat(5,1fr);
- gap:10px;
+.zero-intro{
+ padding:25px;border-radius:18px;margin-bottom:20px;
+ border:1px solid rgba(124,124,255,.16);
+ background:linear-gradient(135deg,rgba(124,124,255,.09),rgba(0,210,255,.04))
 }
+.zero-intro h3{font-size:21px;margin-bottom:7px}
+.zero-intro p{color:#9aa4b9;font-size:14px}
 
-.step{
- position:relative;
- padding:22px 14px;
- text-align:center;
- border-radius:17px;
- background:rgba(255,255,255,.04);
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.full{grid-column:1/-1}
+.guide-actions{margin-top:8px}
+.guide-result{
+ margin-top:20px;padding:24px;border-radius:18px;
  border:1px solid rgba(255,255,255,.08);
+ background:rgba(0,0,0,.22);color:#cbd2e2
 }
+.guide-result h3{color:white;margin-bottom:10px}
+.guide-score{
+ font-size:42px;font-weight:900;color:#8d8cff
+}
+.small-note{font-size:12px;color:#6f7a90;margin-top:8px}
 
-.step strong{
- display:block;
- color:#9c9cff;
- font-size:13px;
- margin-bottom:8px;
+.roadmap{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.step{
+ position:relative;padding:22px 14px;text-align:center;border-radius:17px;
+ background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)
 }
-
-.step span{
- font-size:14px;
- font-weight:700;
-}
+.step strong{display:block;color:#9c9cff;font-size:13px;margin-bottom:8px}
+.step span{font-size:14px;font-weight:700}
 
 .cta{
- text-align:center;
- margin:70px 0;
- padding:60px 25px;
- border-radius:25px;
+ text-align:center;margin:70px 0;padding:60px 25px;border-radius:25px;
  border:1px solid rgba(124,124,255,.18);
- background:linear-gradient(135deg,rgba(124,124,255,.1),rgba(0,210,255,.05));
+ background:linear-gradient(135deg,rgba(124,124,255,.1),rgba(0,210,255,.05))
 }
-
-.cta h2{
- font-size:40px;
- letter-spacing:-1.5px;
-}
-
-.cta p{
- color:#8f99ae;
- margin:10px auto 25px;
- max-width:580px;
-}
-
+.cta h2{font-size:40px;letter-spacing:-1.5px}
+.cta p{color:#8f99ae;margin:10px auto 25px;max-width:580px}
 footer{
- border-top:1px solid rgba(255,255,255,.07);
- padding:25px 0;
- color:#6f788d;
- font-size:13px;
- text-align:center;
-}
-
-.hidden{
- display:none;
+ border-top:1px solid rgba(255,255,255,.07);padding:25px 0;
+ color:#6f788d;font-size:13px;text-align:center
 }
 
 @media(max-width:800px){
- .navlinks{
-  display:none;
- }
-
- .stats{
-  grid-template-columns:1fr 1fr;
- }
-
- .features{
-  grid-template-columns:1fr;
- }
-
- .job-grid{
-  grid-template-columns:1fr;
- }
-
- .roadmap{
-  grid-template-columns:1fr;
- }
-
- h1{
-  letter-spacing:-2px;
- }
-
- .hero{
-  padding-top:65px;
- }
-
- .section-title h2{
-  font-size:30px;
- }
+ .navlinks{display:none}
+ .stats{grid-template-columns:1fr 1fr}
+ .features{grid-template-columns:1fr}
+ .job-grid{grid-template-columns:1fr}
+ .form-grid{grid-template-columns:1fr}
+ .full{grid-column:auto}
+ .roadmap{grid-template-columns:1fr}
+ h1{letter-spacing:-2px}
+ .hero{padding-top:65px}
+ .section-title h2{font-size:30px}
 }
-
 @media(max-width:450px){
- .stats{
-  grid-template-columns:1fr;
- }
-
- .job-actions{
-  grid-template-columns:1fr;
- }
+ .stats{grid-template-columns:1fr}
+ .job-actions{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -506,9 +214,8 @@ footer{
 <nav>
  <div class="container navbar">
   <div class="logo">Career<span>Forge</span> AI</div>
-
   <div class="navlinks">
-   <a href="#tools">AI Tools</a>
+   <a href="#zero">Start From Zero</a>
    <a href="#resume">Resume</a>
    <a href="#jobs">Job Matcher</a>
    <a href="#roadmap">Roadmap</a>
@@ -520,118 +227,173 @@ footer{
 
 <section class="hero">
  <div class="container">
-
-  <div class="badge">🤖 AI-Powered Career Platform</div>
+  <div class="badge">🌱 Start From Zero • 🤖 Grow With AI</div>
 
   <h1>
-   Build the
-   <span class="gradient">career</span>
-   you want.
+   Your career has a
+   <span class="gradient">direction.</span>
   </h1>
 
   <p>
-   Analyze your resume, match jobs, discover missing skills,
-   prepare for interviews and build a stronger career with AI.
+   Whether you have zero skills or you're ready for a job,
+   CareerForge AI helps you understand your strengths,
+   choose a direction and build a clear path toward your future.
   </p>
 
   <div class="buttons">
-   <a class="btn primary" href="#resume">
-    🚀 Analyze My Resume
-   </a>
-
-   <a class="btn secondary" href="#jobs">
-    🎯 Match a Job
-   </a>
+   <a class="btn primary" href="#zero">🌱 I Don't Know What To Do</a>
+   <a class="btn secondary" href="#resume">📄 I Have a Resume</a>
   </div>
-
  </div>
 </section>
 
 <section class="container stats">
-
  <div class="stat">
-  <strong>AI</strong>
-  <span>Career Intelligence</span>
+  <strong>🌱</strong>
+  <span>Start From Zero</span>
  </div>
-
  <div class="stat">
-  <strong>100%</strong>
-  <span>Personalized Analysis</span>
+  <strong>🤖</strong>
+  <span>AI Guidance</span>
  </div>
-
  <div class="stat">
-  <strong>24/7</strong>
-  <span>Career Assistant</span>
+  <strong>🎯</strong>
+  <span>Career Matching</span>
  </div>
-
  <div class="stat">
-  <strong>∞</strong>
-  <span>Growth Potential</span>
+  <strong>🗺️</strong>
+  <span>Personal Roadmap</span>
  </div>
-
 </section>
 
-<section class="section" id="tools">
+<section class="section" id="zero">
  <div class="container">
 
   <div class="section-title">
-   <h2>Everything for your career</h2>
-   <p>One platform to understand where you are and where to go next.</p>
+   <h2>🌱 Start From Zero</h2>
+   <p>Don't know what career to choose? Start here.</p>
   </div>
 
-  <div class="features">
+  <div class="zero-intro">
+   <h3>🎓 No experience? No problem.</h3>
+   <p>
+    Tell CareerForge about yourself. You don't need a resume,
+    coding experience or even a fixed career goal.
+    AI will help you discover suitable directions and create
+    a step-by-step plan for your future.
+   </p>
+  </div>
 
-   <div class="card">
-    <div class="icon">📄</div>
-    <h3>AI Resume Analyzer</h3>
-    <p>
-     Get an AI-powered resume score, ATS improvements,
-     missing skills and career recommendations.
-    </p>
+  <div class="card">
+
+   <div class="form-grid">
+
+    <div class="field">
+     <label class="label">What are you studying? *</label>
+     <input id="education"
+      placeholder="Example: B.E Computer Science">
+    </div>
+
+    <div class="field">
+     <label class="label">Which year are you in?</label>
+     <select id="year">
+      <option value="">Select year</option>
+      <option>1st Year</option>
+      <option>2nd Year</option>
+      <option>3rd Year</option>
+      <option>4th Year</option>
+      <option>Recently Graduated</option>
+     </select>
+    </div>
+
+    <div class="field">
+     <label class="label">What interests you?</label>
+     <input id="interests"
+      placeholder="Example: AI, computers, business, design">
+    </div>
+
+    <div class="field">
+     <label class="label">What are you good at?</label>
+     <input id="strengths"
+      placeholder="Example: maths, speaking, creativity">
+    </div>
+
+    <div class="field">
+     <label class="label">What do you dislike?</label>
+     <input id="dislikes"
+      placeholder="Example: public speaking, repetitive work">
+    </div>
+
+    <div class="field">
+     <label class="label">What type of work sounds interesting?</label>
+     <select id="preference">
+      <option value="">I'm not sure</option>
+      <option>Coding and Technology</option>
+      <option>AI and Data</option>
+      <option>Design and Creativity</option>
+      <option>Business and Management</option>
+      <option>Communication and People</option>
+      <option>Research and Science</option>
+      <option>Cybersecurity</option>
+      <option>Electronics and Hardware</option>
+      <option>Entrepreneurship</option>
+     </select>
+    </div>
+
+    <div class="field">
+     <label class="label">How much can you learn each day?</label>
+     <select id="time">
+      <option value="">Not sure</option>
+      <option>30 minutes</option>
+      <option>1 hour</option>
+      <option>2 hours</option>
+      <option>3+ hours</option>
+     </select>
+    </div>
+
+    <div class="field">
+     <label class="label">Current skill level</label>
+     <select id="level">
+      <option>Complete beginner</option>
+      <option>Basic</option>
+      <option>Intermediate</option>
+      <option>Advanced</option>
+     </select>
+    </div>
+
+    <div class="field">
+     <label class="label">Main goal</label>
+     <select id="goal">
+      <option value="">I'm not sure</option>
+      <option>Get an internship</option>
+      <option>Get a job</option>
+      <option>Build a strong career</option>
+      <option>Higher studies</option>
+      <option>Start a business</option>
+     </select>
+    </div>
+
+    <div class="field">
+     <label class="label">Dream career (optional)</label>
+     <input id="dream"
+      placeholder="Type a career or say: I don't know">
+    </div>
+
    </div>
 
-   <div class="card">
-    <div class="icon">🎯</div>
-    <h3>AI Job Matcher</h3>
-    <p>
-     Compare your resume with any job description
-     and discover your real match percentage.
-    </p>
-   </div>
+   <button
+    id="guideBtn"
+    class="btn primary action guide-actions"
+    onclick="getCareerGuide()">
+    🌱 Create My Career Roadmap
+   </button>
 
-   <div class="card">
-    <div class="icon">🧠</div>
-    <h3>Career Advisor</h3>
+   <div id="guideResult" class="guide-result">
+    <div class="guide-score">?</div>
+    <h3>Your future plan will appear here.</h3>
     <p>
-     Discover suitable roles and the skills you should
-     learn to reach your career goals.
-    </p>
-   </div>
-
-   <div class="card">
-    <div class="icon">🎤</div>
-    <h3>Interview Coach</h3>
-    <p>
-     Practice technical and HR interviews and improve
-     your answers with AI feedback.
-    </p>
-   </div>
-
-   <div class="card">
-    <div class="icon">💻</div>
-    <h3>Coding Practice</h3>
-    <p>
-     Improve programming, DSA and problem-solving skills
-     with structured practice.
-    </p>
-   </div>
-
-   <div class="card">
-    <div class="icon">📊</div>
-    <h3>Career Score</h3>
-    <p>
-     Track your overall career readiness across resume,
-     skills, projects, coding and interviews.
+     CareerForge will recommend suitable career directions,
+     choose a primary path and create your learning roadmap.
     </p>
    </div>
 
@@ -643,8 +405,8 @@ footer{
  <div class="container">
 
   <div class="section-title">
-   <h2>🤖 AI Resume Analyzer</h2>
-   <p>Paste your resume and let CareerForge find your strengths and gaps.</p>
+   <h2>📄 AI Resume Analyzer</h2>
+   <p>Already have a resume? Find out how strong it is.</p>
   </div>
 
   <div class="card tool">
@@ -654,25 +416,12 @@ footer{
     <h3>Analyze your resume</h3>
    </div>
 
-   <textarea
-    id="resume"
-    placeholder="Paste your complete resume here...
+   <textarea id="resume"
+    placeholder="Paste your complete resume here..."></textarea>
 
-Example:
-Name
-Education
-Skills
-Projects
-Internships
-Certifications
-Achievements"
-   ></textarea>
-
-   <button
-    id="analyzeBtn"
+   <button id="analyzeBtn"
     class="btn primary action"
-    onclick="analyzeResume()"
-   >
+    onclick="analyzeResume()">
     🤖 Analyze With AI
    </button>
 
@@ -690,49 +439,31 @@ Achievements"
 
   <div class="section-title">
    <h2>🎯 AI Job Matcher</h2>
-   <p>Find out how well your resume matches a real job.</p>
+   <p>Compare your resume with a real job description.</p>
   </div>
 
   <div class="job-grid">
 
    <div class="card">
-
     <div class="tool-header">
      <div class="icon">📄</div>
      <h3>Your Resume</h3>
     </div>
 
-    <label class="label" for="jobResume">
-     Paste your resume
-    </label>
-
-    <textarea
-     id="jobResume"
-     placeholder="Paste your resume here..."
-    ></textarea>
-
+    <label class="label">Paste your resume</label>
+    <textarea id="jobResume"
+     placeholder="Paste your resume here..."></textarea>
    </div>
 
    <div class="card">
-
     <div class="tool-header">
      <div class="icon">💼</div>
      <h3>Job Description</h3>
     </div>
 
-    <label class="label" for="jobDescription">
-     Paste the job description
-    </label>
-
-    <textarea
-     id="jobDescription"
-     placeholder="Paste the job description here...
-
-Example:
-We are looking for a Python Developer with
-Flask, SQL, Git and REST API experience..."
-    ></textarea>
-
+    <label class="label">Paste the job description</label>
+    <textarea id="jobDescription"
+     placeholder="Paste the job description here..."></textarea>
    </div>
 
   </div>
@@ -740,39 +471,28 @@ Flask, SQL, Git and REST API experience..."
   <div class="card tool">
 
    <div class="job-actions">
-
-    <button
-     id="matchBtn"
+    <button id="matchBtn"
      class="btn primary"
-     onclick="matchJob()"
-    >
+     onclick="matchJob()">
      🎯 Match This Job
     </button>
 
-    <button
-     class="btn clear"
-     onclick="clearJobMatcher()"
-    >
+    <button class="btn clear"
+     onclick="clearJobMatcher()">
      Clear
     </button>
-
    </div>
 
    <div id="jobResult" class="match-box">
-
     <div class="match-score">--%</div>
-
     <h3>Ready to match</h3>
-
     <p>
      Add your resume and a job description to see
-     your compatibility score and personalized advice.
+     your compatibility score.
     </p>
-
    </div>
 
   </div>
-
  </div>
 </section>
 
@@ -780,37 +500,35 @@ Flask, SQL, Git and REST API experience..."
  <div class="container">
 
   <div class="section-title">
-   <h2>🗺️ Your Career Journey</h2>
-   <p>A simple path from student to professional.</p>
+   <h2>🗺️ Career Journey</h2>
+   <p>The basic path from beginner to professional.</p>
   </div>
 
   <div class="roadmap">
-
    <div class="step">
-    <strong>STEP 01</strong>
-    <span>Build Skills</span>
+    <strong>01</strong>
+    <span>Discover</span>
    </div>
 
    <div class="step">
-    <strong>STEP 02</strong>
-    <span>Create Projects</span>
+    <strong>02</strong>
+    <span>Learn</span>
    </div>
 
    <div class="step">
-    <strong>STEP 03</strong>
-    <span>Improve Resume</span>
+    <strong>03</strong>
+    <span>Build</span>
    </div>
 
    <div class="step">
-    <strong>STEP 04</strong>
-    <span>Apply for Jobs</span>
+    <strong>04</strong>
+    <span>Apply</span>
    </div>
 
    <div class="step">
-    <strong>STEP 05</strong>
-    <span>Crack Interviews</span>
+    <strong>05</strong>
+    <span>Grow</span>
    </div>
-
   </div>
 
  </div>
@@ -818,19 +536,14 @@ Flask, SQL, Git and REST API experience..."
 
 <section class="container">
  <div class="cta">
-
-  <h2>Your next career move starts here.</h2>
-
+  <h2>Your future starts with one decision.</h2>
   <p>
-   Use AI to understand your current position,
-   identify what you're missing and build a plan
-   to become job-ready.
+   You don't need to know everything today.
+   You only need to know your next step.
   </p>
-
-  <a class="btn primary" href="#resume">
-   🚀 Start Career Analysis
+  <a class="btn primary" href="#zero">
+   🌱 Find My Direction
   </a>
-
  </div>
 </section>
 
@@ -838,7 +551,7 @@ Flask, SQL, Git and REST API experience..."
 
 <footer>
  <div class="container">
-  CareerForge AI • AI-powered career growth platform
+  CareerForge AI • Discover • Learn • Build • Apply • Grow
  </div>
 </footer>
 
@@ -858,13 +571,111 @@ function escapeHtml(text){
  );
 }
 
+async function getCareerGuide(){
+
+ const education=document.getElementById("education").value.trim();
+ const year=document.getElementById("year").value;
+ const interests=document.getElementById("interests").value.trim();
+ const strengths=document.getElementById("strengths").value.trim();
+ const dislikes=document.getElementById("dislikes").value.trim();
+ const preference=document.getElementById("preference").value;
+ const time=document.getElementById("time").value;
+ const goal=document.getElementById("goal").value;
+ const level=document.getElementById("level").value;
+ const dream=document.getElementById("dream").value.trim();
+
+ const result=document.getElementById("guideResult");
+ const button=document.getElementById("guideBtn");
+
+ if(!education){
+
+  result.innerHTML=
+   '<div class="guide-score">!</div>'+
+   '<h3>Education Required</h3>'+
+   '<p>Tell us what you are studying first.</p>';
+
+  return;
+ }
+
+ button.disabled=true;
+ button.textContent="🤖 Building Your Future Plan...";
+
+ result.innerHTML=
+  '<div class="loading">'+
+  '<span class="dot"></span>'+
+  'AI is understanding your career direction...'+
+  '</div>'+
+  '<p>Finding suitable careers and creating your personalized roadmap.</p>';
+
+ try{
+
+  const response=await fetch(
+   "/api/career-guide",
+   {
+    method:"POST",
+    headers:{
+     "Content-Type":"application/json"
+    },
+    body:JSON.stringify({
+     education:education,
+     year:year,
+     interests:interests,
+     strengths:strengths,
+     dislikes:dislikes,
+     preference:preference,
+     time:time,
+     goal:goal,
+     level:level,
+     dream:dream
+    })
+   }
+  );
+
+  const data=await response.json();
+
+  if(!response.ok){
+   throw new Error(
+    data.error||"Career guidance failed"
+   );
+  }
+
+  result.innerHTML=
+   '<div class="guide-score">✓</div>'+
+   '<h3>🎯 Your Career Plan Is Ready</h3>'+
+   '<div style="white-space:pre-wrap">'+
+   escapeHtml(
+    data.answer||
+    "No career plan returned."
+   )+
+   '</div>';
+
+  result.scrollIntoView({
+   behavior:"smooth",
+   block:"start"
+  });
+
+ }catch(error){
+
+  result.innerHTML=
+   '<div class="guide-score">!</div>'+
+   '<h3>Guidance Failed</h3>'+
+   '<p>'+
+   escapeHtml(error.message)+
+   '</p>'+
+   '<p>Please check that the latest Render deployment has completed.</p>';
+
+ }finally{
+
+  button.disabled=false;
+  button.textContent="🌱 Create My Career Roadmap";
+
+ }
+}
+
+
 async function analyzeResume(){
 
- const resume=document
-  .getElementById("resume")
-  .value
-  .trim();
-
+ const resume=document.getElementById("resume").value.trim();
  const result=document.getElementById("resumeResult");
  const button=document.getElementById("analyzeBtn");
 
@@ -886,7 +697,7 @@ async function analyzeResume(){
   '<span class="dot"></span>'+
   'AI is analyzing your resume...'+
   '</div>'+
-  '<p>Checking skills, projects, ATS quality, career roles and improvement areas.</p>';
+  '<p>Checking skills, projects, ATS quality and career roles.</p>';
 
  try{
 
@@ -916,8 +727,7 @@ async function analyzeResume(){
    '<h3>AI Analysis Complete</h3>'+
    '<div style="white-space:pre-wrap">'+
    escapeHtml(
-    data.answer||
-    "No analysis returned."
+    data.answer||"No analysis returned."
    )+
    '</div>';
 
@@ -928,8 +738,7 @@ async function analyzeResume(){
    '<h3>Analysis Failed</h3>'+
    '<p>'+
    escapeHtml(error.message)+
-   '</p>'+
-   '<p>Please check the backend and AI API configuration.</p>';
+   '</p>';
 
  }finally{
 
@@ -942,16 +751,8 @@ async function analyzeResume(){
 
 async function matchJob(){
 
- const resume=document
-  .getElementById("jobResume")
-  .value
-  .trim();
-
- const job=document
-  .getElementById("jobDescription")
-  .value
-  .trim();
-
+ const resume=document.getElementById("jobResume").value.trim();
+ const job=document.getElementById("jobDescription").value.trim();
  const result=document.getElementById("jobResult");
  const button=document.getElementById("matchBtn");
 
@@ -974,7 +775,6 @@ async function matchJob(){
 
   return;
  }
-
  button.disabled=true;
  button.textContent="🤖 Matching...";
 
@@ -983,7 +783,7 @@ async function matchJob(){
   '<span class="dot"></span>'+
   'AI is comparing your resume with the job...'+
   '</div>'+
-  '<p>Checking skills, experience, ATS keywords and career fit.</p>';
+  '<p>Checking skills, experience and ATS keywords.</p>';
 
  try{
 
@@ -1005,13 +805,11 @@ async function matchJob(){
 
   if(!response.ok){
    throw new Error(
-    data.error||
-    "Job matching failed"
+    data.error||"Job matching failed"
    );
   }
 
   const answer=data.answer||"No analysis returned.";
-
   const score=findScore(answer);
 
   result.innerHTML=
@@ -1031,9 +829,7 @@ async function matchJob(){
    setTimeout(function(){
 
     const bar=
-     document.getElementById(
-      "matchProgress"
-     );
+     document.getElementById("matchProgress");
 
     if(bar){
      bar.style.width=
@@ -1042,7 +838,6 @@ async function matchJob(){
     }
 
    },100);
-
   }
 
  }catch(error){
@@ -1053,7 +848,7 @@ async function matchJob(){
    '<p>'+
    escapeHtml(error.message)+
    '</p>'+
-   '<p>Make sure your Render deployment has completed.</p>';
+   '<p>Please check that the latest Render deployment has completed.</p>';
 
  }finally{
 
@@ -1078,9 +873,10 @@ function findScore(text){
   const match=text.match(patterns[i]);
 
   if(match){
+
    const value=parseInt(match[1],10);
 
-   if(value>=0 && value<=100){
+   if(value>=0&&value<=100){
     return value;
    }
   }
@@ -1092,55 +888,16 @@ function findScore(text){
 
 function clearJobMatcher(){
 
- document.getElementById(
-  "jobResume"
- ).value="";
+ document.getElementById("jobResume").value="";
+ document.getElementById("jobDescription").value="";
 
- document.getElementById(
-  "jobDescription"
- ).value="";
-
- document.getElementById(
-  "jobResult"
- ).innerHTML=
+ document.getElementById("jobResult").innerHTML=
   '<div class="match-score">--%</div>'+
   '<h3>Ready to match</h3>'+
-  '<p>Add your resume and a job description to see your compatibility score and personalized advice.</p>';
+  '<p>Add your resume and a job description to see your compatibility score.</p>';
 }
-
-
-function copyResumeToMatcher(){
-
- const resume=
-  document.getElementById("resume")
-  .value;
-
- document.getElementById(
-  "jobResume"
- ).value=resume;
-
- document.getElementById(
-  "jobs"
- ).scrollIntoView({
-  behavior:"smooth"
- });
-}
-
-
-document
- .getElementById("resume")
- .addEventListener(
-  "input",
-  function(){
-   if(
-    this.value.length>0 &&
-    this.value.length<100
-   ){
-    /* Resume input detected */
-   }
-  }
- );
 </script>
 
 </body>
- </html>
+</html>
+ 
