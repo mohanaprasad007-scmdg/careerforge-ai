@@ -4,207 +4,252 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#070b16">
-<title>CareerForge AI — Your Career Starts Here</title>
+<title>CareerForge AI</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
- font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
- background:#070b16;color:#f5f7ff;line-height:1.6;overflow-x:hidden
+font-family:Inter,system-ui,sans-serif;
+background:#070b16;color:#f5f7ff;line-height:1.6
 }
-body:before{
- content:"";position:fixed;width:500px;height:500px;left:-180px;top:-180px;
- background:radial-gradient(circle,rgba(94,92,255,.22),transparent 65%);
- pointer-events:none
-}
-body:after{
- content:"";position:fixed;width:500px;height:500px;right:-220px;bottom:-220px;
- background:radial-gradient(circle,rgba(0,210,255,.16),transparent 65%);
- pointer-events:none
-}
-a{color:inherit;text-decoration:none}
 .container{width:min(1120px,92%);margin:auto}
 nav{
- position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);
- background:rgba(7,11,22,.75);border-bottom:1px solid rgba(255,255,255,.08)
+position:sticky;top:0;z-index:20;
+background:rgba(7,11,22,.86);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(255,255,255,.08)
 }
-.navbar{height:72px;display:flex;align-items:center;justify-content:space-between}
+.navbar{
+height:70px;display:flex;align-items:center;
+justify-content:space-between
+}
 .logo{font-size:21px;font-weight:900}
 .logo span{color:#7c7cff}
-.navlinks{display:flex;gap:22px;color:#aeb6ca;font-size:14px}
+.navlinks{display:flex;gap:20px;color:#aeb6ca;font-size:13px}
 .navlinks a:hover{color:white}
 
-.hero{padding:88px 0 60px;text-align:center}
+.hero{text-align:center;padding:85px 0 55px}
 .badge{
- display:inline-flex;padding:8px 15px;border:1px solid rgba(124,124,255,.3);
- background:rgba(124,124,255,.1);border-radius:30px;color:#bfc0ff;
- font-size:13px;font-weight:700;margin-bottom:22px
+display:inline-block;padding:8px 15px;border-radius:30px;
+background:rgba(124,124,255,.1);
+border:1px solid rgba(124,124,255,.3);
+color:#c3c4ff;font-size:13px;font-weight:800;
+margin-bottom:22px
 }
 h1{
- max-width:850px;margin:auto;font-size:clamp(42px,7vw,76px);
- line-height:1.02;letter-spacing:-3px
+font-size:clamp(42px,7vw,75px);
+line-height:1.02;letter-spacing:-3px
 }
 .gradient{
- background:linear-gradient(90deg,#fff,#9d9dff,#68e7ff);
- -webkit-background-clip:text;color:transparent
+background:linear-gradient(90deg,#fff,#9d9dff,#68e7ff);
+-webkit-background-clip:text;color:transparent
 }
-.hero p{max-width:700px;margin:24px auto 0;color:#aab3c8;font-size:18px}
-.buttons{display:flex;justify-content:center;gap:12px;margin-top:32px;flex-wrap:wrap}
+.hero p{
+max-width:720px;margin:22px auto;color:#aab3c8;
+font-size:18px
+}
+.buttons{
+display:flex;justify-content:center;gap:12px;
+flex-wrap:wrap;margin-top:30px
+}
 .btn{
- border:0;border-radius:13px;padding:13px 21px;font-size:15px;
- font-weight:800;cursor:pointer;transition:.2s
+border:0;border-radius:13px;padding:13px 20px;
+font-weight:800;font-size:14px;cursor:pointer;
+transition:.2s
 }
 .btn:hover{transform:translateY(-2px)}
 .primary{
- background:linear-gradient(135deg,#7775ff,#4c9dff);color:white;
- box-shadow:0 10px 35px rgba(83,100,255,.25)
+background:linear-gradient(135deg,#7775ff,#4c9dff);
+color:white
 }
 .secondary{
- background:rgba(255,255,255,.06);color:white;
- border:1px solid rgba(255,255,255,.1)
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.1);
+color:white
 }
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0 70px}
-.stat{
- padding:21px;border:1px solid rgba(255,255,255,.08);
- background:rgba(255,255,255,.035);border-radius:18px;text-align:center
-}
-.stat strong{display:block;font-size:27px}
-.stat span{color:#8993a9;font-size:13px}
-
 .section{padding:65px 0}
-.section-title{text-align:center;margin-bottom:38px}
-.section-title h2{font-size:38px;letter-spacing:-1.5px}
-.section-title p{color:#8993a9;margin-top:8px}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.title{text-align:center;margin-bottom:35px}
+.title h2{font-size:36px;letter-spacing:-1px}
+.title p{color:#8993a9;margin-top:7px}
+
+.stats{
+display:grid;grid-template-columns:repeat(4,1fr);
+gap:14px;margin:20px auto 60px
+}
+.stat{
+text-align:center;padding:20px;border-radius:18px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08)
+}
+.stat b{font-size:27px;display:block}
+.stat span{font-size:12px;color:#8993a9}
+
+.features{
+display:grid;grid-template-columns:repeat(3,1fr);gap:16px
+}
 .card{
- background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);
- border-radius:20px;padding:24px;backdrop-filter:blur(15px)
+padding:23px;border-radius:20px;
+background:rgba(255,255,255,.045);
+border:1px solid rgba(255,255,255,.08)
 }
-.card:hover{border-color:rgba(124,124,255,.3)}
 .icon{
- width:45px;height:45px;display:grid;place-items:center;border-radius:13px;
- background:rgba(124,124,255,.12);font-size:21px;margin-bottom:17px
+width:45px;height:45px;display:grid;
+place-items:center;border-radius:13px;
+background:rgba(124,124,255,.12);
+font-size:21px;margin-bottom:15px
 }
-.card h3{font-size:18px;margin-bottom:7px}
-.card p{color:#8f99ae;font-size:14px}
+.card h3{margin-bottom:7px}
+.card p{font-size:14px;color:#8f99ae}
 
-.tool{margin-top:25px}
-.tool-header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.tool-header .icon{margin:0}
-.tool-header h3{font-size:22px}
+.tool{margin-top:20px}
+.toolhead{
+display:flex;align-items:center;gap:13px;
+margin-bottom:17px
+}
+.toolhead .icon{margin:0}
+.toolhead h3{font-size:21px}
 
-textarea,select,input{
- width:100%;padding:15px;border-radius:14px;
- border:1px solid rgba(255,255,255,.1);
- background:rgba(0,0,0,.25);color:white;outline:none;font:inherit
+label{
+display:block;font-size:13px;font-weight:800;
+color:#aeb6ca;margin-bottom:7px
 }
-textarea{min-height:240px;resize:vertical;font-size:14px}
-textarea:focus,input:focus,select:focus{
- border-color:#7474ff;box-shadow:0 0 0 3px rgba(116,116,255,.1)
+input,select,textarea{
+width:100%;padding:14px;border-radius:13px;
+background:rgba(0,0,0,.25);
+border:1px solid rgba(255,255,255,.1);
+color:white;outline:none;font:inherit
 }
-textarea::placeholder,input::placeholder{color:#69738a}
-select option{background:#101522;color:white}
-.label{
- display:block;font-size:13px;font-weight:800;color:#aeb6ca;margin-bottom:7px
+textarea{min-height:230px;resize:vertical;font-size:14px}
+input:focus,select:focus,textarea:focus{
+border-color:#7775ff;
+box-shadow:0 0 0 3px rgba(119,117,255,.1)
 }
-.field{margin-bottom:16px}
+select option{background:#111827}
+.field{margin-bottom:15px}
+.action{width:100%;margin-top:8px}
 
-.action{margin-top:14px;width:100%}
 .result{
- margin-top:18px;min-height:100px;padding:22px;border-radius:16px;
- border:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.2);
- color:#c9d0df
+margin-top:17px;padding:21px;border-radius:16px;
+background:rgba(0,0,0,.22);
+border:1px solid rgba(255,255,255,.08);
+color:#cbd2e2
 }
-.result h3{color:white;margin-bottom:10px}
+.result h3{color:white;margin-bottom:8px}
 .score{
- font-size:44px;font-weight:900;color:#8c8cff;margin-bottom:5px
+font-size:43px;font-weight:900;color:#8e8cff
 }
-.loading{display:flex;align-items:center;gap:9px;color:#aeb4ff;font-weight:700}
-.dot{
- width:9px;height:9px;border-radius:50%;background:#8c8cff;
- animation:pulse 1s infinite
-}
-@keyframes pulse{50%{opacity:.25;transform:scale(.7)}}
 
-.job-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.job-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-.clear{background:transparent;border:1px solid rgba(255,255,255,.1);color:#aeb6ca}
-.match-box{
- margin-top:18px;padding:22px;border-radius:17px;
- border:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.22)
+.loading{
+display:flex;align-items:center;gap:9px;
+font-weight:800;color:#aaaaff
 }
-.match-score{
- font-size:54px;font-weight:900;
- background:linear-gradient(90deg,#78e8ff,#8c83ff);
- -webkit-background-clip:text;color:transparent
+.dot{
+width:9px;height:9px;border-radius:50%;
+background:#8e8cff;animation:pulse 1s infinite
+}
+@keyframes pulse{50%{opacity:.25}}
+
+.formgrid{
+display:grid;grid-template-columns:1fr 1fr;gap:15px
+}
+.full{grid-column:1/-1}
+
+.jobgrid{
+display:grid;grid-template-columns:1fr 1fr;gap:18px
+}
+.jobbuttons{
+display:grid;grid-template-columns:1fr 1fr;
+gap:12px;margin-top:14px
+}
+.match{
+margin-top:18px;padding:22px;border-radius:17px;
+background:rgba(0,0,0,.22);
+border:1px solid rgba(255,255,255,.08)
+}
+.matchscore{
+font-size:52px;font-weight:900;
+background:linear-gradient(90deg,#68e7ff,#8c83ff);
+-webkit-background-clip:text;color:transparent
 }
 .progress{
- height:8px;border-radius:20px;background:rgba(255,255,255,.08);
- overflow:hidden;margin:8px 0 18px
+height:8px;background:rgba(255,255,255,.08);
+border-radius:20px;overflow:hidden;margin:7px 0 18px
 }
 .progress div{
- height:100%;width:0;background:linear-gradient(90deg,#68e7ff,#7775ff);
- transition:1s
+height:100%;width:0;
+background:linear-gradient(90deg,#68e7ff,#7775ff);
+transition:1s
 }
 
-.zero-intro{
- padding:25px;border-radius:18px;margin-bottom:20px;
- border:1px solid rgba(124,124,255,.16);
- background:linear-gradient(135deg,rgba(124,124,255,.09),rgba(0,210,255,.04))
+.dashboard{
+display:grid;grid-template-columns:repeat(4,1fr);
+gap:13px;margin-bottom:18px
 }
-.zero-intro h3{font-size:21px;margin-bottom:7px}
-.zero-intro p{color:#9aa4b9;font-size:14px}
+.dbox{
+padding:18px;border-radius:17px;
+background:rgba(255,255,255,.045);
+border:1px solid rgba(255,255,255,.08)
+}
+.dbox small{color:#7f899f;font-size:11px}
+.dbox strong{
+display:block;font-size:25px;margin-top:3px
+}
+.dbox .purple{color:#9290ff}
+.dbox .cyan{color:#68e7ff}
+.dbox .green{color:#78e8b0}
+.dbox .orange{color:#ffbe70}
 
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.full{grid-column:1/-1}
-.guide-actions{margin-top:8px}
-.guide-result{
- margin-top:20px;padding:24px;border-radius:18px;
- border:1px solid rgba(255,255,255,.08);
- background:rgba(0,0,0,.22);color:#cbd2e2
+.dashboard-actions{
+display:grid;grid-template-columns:1fr 1fr;
+gap:12px;margin-top:14px
 }
-.guide-result h3{color:white;margin-bottom:10px}
-.guide-score{
- font-size:42px;font-weight:900;color:#8d8cff
-}
-.small-note{font-size:12px;color:#6f7a90;margin-top:8px}
 
-.roadmap{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.roadmap{
+display:grid;grid-template-columns:repeat(5,1fr);gap:10px
+}
 .step{
- position:relative;padding:22px 14px;text-align:center;border-radius:17px;
- background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)
+text-align:center;padding:21px 10px;
+border-radius:17px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08)
 }
-.step strong{display:block;color:#9c9cff;font-size:13px;margin-bottom:8px}
-.step span{font-size:14px;font-weight:700}
+.step b{display:block;color:#9997ff;font-size:12px;margin-bottom:6px}
+.step span{font-size:13px;font-weight:800}
 
 .cta{
- text-align:center;margin:70px 0;padding:60px 25px;border-radius:25px;
- border:1px solid rgba(124,124,255,.18);
- background:linear-gradient(135deg,rgba(124,124,255,.1),rgba(0,210,255,.05))
+text-align:center;padding:55px 20px;
+margin:60px 0;border-radius:24px;
+background:linear-gradient(135deg,
+rgba(124,124,255,.1),rgba(0,210,255,.05));
+border:1px solid rgba(124,124,255,.18)
 }
-.cta h2{font-size:40px;letter-spacing:-1.5px}
-.cta p{color:#8f99ae;margin:10px auto 25px;max-width:580px}
+.cta h2{font-size:37px}
+.cta p{
+color:#8f99ae;max-width:600px;
+margin:10px auto 22px
+}
 footer{
- border-top:1px solid rgba(255,255,255,.07);padding:25px 0;
- color:#6f788d;font-size:13px;text-align:center
+text-align:center;padding:25px;
+border-top:1px solid rgba(255,255,255,.07);
+color:#6f788d;font-size:13px
 }
 
 @media(max-width:800px){
- .navlinks{display:none}
- .stats{grid-template-columns:1fr 1fr}
- .features{grid-template-columns:1fr}
- .job-grid{grid-template-columns:1fr}
- .form-grid{grid-template-columns:1fr}
- .full{grid-column:auto}
- .roadmap{grid-template-columns:1fr}
- h1{letter-spacing:-2px}
- .hero{padding-top:65px}
- .section-title h2{font-size:30px}
+.navlinks{display:none}
+.stats{grid-template-columns:1fr 1fr}
+.features{grid-template-columns:1fr}
+.jobgrid{grid-template-columns:1fr}
+.formgrid{grid-template-columns:1fr}
+.full{grid-column:auto}
+.dashboard{grid-template-columns:1fr 1fr}
+.roadmap{grid-template-columns:1fr}
+h1{letter-spacing:-2px}
 }
 @media(max-width:450px){
- .stats{grid-template-columns:1fr}
- .job-actions{grid-template-columns:1fr}
+.stats{grid-template-columns:1fr}
+.dashboard{grid-template-columns:1fr}
+.jobbuttons,.dashboard-actions{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -212,692 +257,912 @@ footer{
 <body>
 
 <nav>
- <div class="container navbar">
-  <div class="logo">Career<span>Forge</span> AI</div>
-  <div class="navlinks">
-   <a href="#zero">Start From Zero</a>
-   <a href="#resume">Resume</a>
-   <a href="#jobs">Job Matcher</a>
-   <a href="#roadmap">Roadmap</a>
-  </div>
- </div>
+<div class="container navbar">
+<div class="logo">Career<span>Forge</span> AI</div>
+<div class="navlinks">
+<a href="#zero">Start From Zero</a>
+<a href="#dashboard">Dashboard</a>
+<a href="#resume">Resume</a>
+<a href="#jobs">Jobs</a>
+</div>
+</div>
 </nav>
 
-<main>
-
 <section class="hero">
- <div class="container">
-  <div class="badge">🌱 Start From Zero • 🤖 Grow With AI</div>
+<div class="container">
 
-  <h1>
-   Your career has a
-   <span class="gradient">direction.</span>
-  </h1>
+<div class="badge">🌱 Zero → Career • 🤖 AI Guidance</div>
 
-  <p>
-   Whether you have zero skills or you're ready for a job,
-   CareerForge AI helps you understand your strengths,
-   choose a direction and build a clear path toward your future.
-  </p>
+<h1>
+Build your
+<span class="gradient">future.</span>
+</h1>
 
-  <div class="buttons">
-   <a class="btn primary" href="#zero">🌱 I Don't Know What To Do</a>
-   <a class="btn secondary" href="#resume">📄 I Have a Resume</a>
-  </div>
- </div>
+<p>
+Don't know what to learn? Don't know which career to choose?
+CareerForge AI gives you a clear direction, learning roadmap,
+projects and job preparation.
+</p>
+
+<div class="buttons">
+<a class="btn primary" href="#zero">
+🌱 Start From Zero
+</a>
+<a class="btn secondary" href="#dashboard">
+📊 My Dashboard
+</a>
+</div>
+
+</div>
 </section>
 
 <section class="container stats">
- <div class="stat">
-  <strong>🌱</strong>
-  <span>Start From Zero</span>
- </div>
- <div class="stat">
-  <strong>🤖</strong>
-  <span>AI Guidance</span>
- </div>
- <div class="stat">
-  <strong>🎯</strong>
-  <span>Career Matching</span>
- </div>
- <div class="stat">
-  <strong>🗺️</strong>
-  <span>Personal Roadmap</span>
- </div>
+
+<div class="stat">
+<b>🌱</b>
+<span>Start From Zero</span>
+</div>
+
+<div class="stat">
+<b>🤖</b>
+<span>AI Guidance</span>
+</div>
+
+<div class="stat">
+<b>🎯</b>
+<span>Job Matching</span>
+</div>
+
+<div class="stat">
+<b>🗺️</b>
+<span>Career Roadmap</span>
+</div>
+
 </section>
 
 <section class="section" id="zero">
- <div class="container">
+<div class="container">
 
-  <div class="section-title">
-   <h2>🌱 Start From Zero</h2>
-   <p>Don't know what career to choose? Start here.</p>
-  </div>
+<div class="title">
+<h2>🌱 Start From Zero</h2>
+<p>Answer a few simple questions and discover your direction.</p>
+</div>
 
-  <div class="zero-intro">
-   <h3>🎓 No experience? No problem.</h3>
-   <p>
-    Tell CareerForge about yourself. You don't need a resume,
-    coding experience or even a fixed career goal.
-    AI will help you discover suitable directions and create
-    a step-by-step plan for your future.
-   </p>
-  </div>
+<div class="card">
 
-  <div class="card">
+<div class="formgrid">
 
-   <div class="form-grid">
+<div class="field">
+<label>What are you studying? *</label>
+<input id="education"
+placeholder="Example: B.E Computer Science">
+</div>
 
-    <div class="field">
-     <label class="label">What are you studying? *</label>
-     <input id="education"
-      placeholder="Example: B.E Computer Science">
-    </div>
+<div class="field">
+<label>Which year?</label>
+<select id="year">
+<option value="">Select year</option>
+<option>1st Year</option>
+<option>2nd Year</option>
+<option>3rd Year</option>
+<option>4th Year</option>
+<option>Recently Graduated</option>
+</select>
+</div>
 
-    <div class="field">
-     <label class="label">Which year are you in?</label>
-     <select id="year">
-      <option value="">Select year</option>
-      <option>1st Year</option>
-      <option>2nd Year</option>
-      <option>3rd Year</option>
-      <option>4th Year</option>
-      <option>Recently Graduated</option>
-     </select>
-    </div>
+<div class="field">
+<label>What interests you?</label>
+<input id="interests"
+placeholder="Example: AI, computers, business">
+</div>
 
-    <div class="field">
-     <label class="label">What interests you?</label>
-     <input id="interests"
-      placeholder="Example: AI, computers, business, design">
-    </div>
+<div class="field">
+<label>What are you good at?</label>
+<input id="strengths"
+placeholder="Example: maths, creativity, speaking">
+</div>
 
-    <div class="field">
-     <label class="label">What are you good at?</label>
-     <input id="strengths"
-      placeholder="Example: maths, speaking, creativity">
-    </div>
+<div class="field">
+<label>What do you dislike?</label>
+<input id="dislikes"
+placeholder="Example: repetitive work">
+</div>
 
-    <div class="field">
-     <label class="label">What do you dislike?</label>
-     <input id="dislikes"
-      placeholder="Example: public speaking, repetitive work">
-    </div>
+<div class="field">
+<label>Preferred work</label>
+<select id="preference">
+<option value="">I'm not sure</option>
+<option>Coding and Technology</option>
+<option>AI and Data</option>
+<option>Design and Creativity</option>
+<option>Business and Management</option>
+<option>Communication and People</option>
+<option>Research and Science</option>
+<option>Cybersecurity</option>
+<option>Electronics and Hardware</option>
+<option>Entrepreneurship</option>
+</select>
+</div>
 
-    <div class="field">
-     <label class="label">What type of work sounds interesting?</label>
-     <select id="preference">
-      <option value="">I'm not sure</option>
-      <option>Coding and Technology</option>
-      <option>AI and Data</option>
-      <option>Design and Creativity</option>
-      <option>Business and Management</option>
-      <option>Communication and People</option>
-      <option>Research and Science</option>
-      <option>Cybersecurity</option>
-      <option>Electronics and Hardware</option>
-      <option>Entrepreneurship</option>
-     </select>
-    </div>
+<div class="field">
+<label>Learning time per day</label>
+<select id="time">
+<option value="">Not sure</option>
+<option>30 minutes</option>
+<option>1 hour</option>
+<option>2 hours</option>
+<option>3+ hours</option>
+</select>
+</div>
 
-    <div class="field">
-     <label class="label">How much can you learn each day?</label>
-     <select id="time">
-      <option value="">Not sure</option>
-      <option>30 minutes</option>
-      <option>1 hour</option>
-      <option>2 hours</option>
-      <option>3+ hours</option>
-     </select>
-    </div>
+<div class="field">
+<label>Current level</label>
+<select id="level">
+<option>Complete beginner</option>
+<option>Basic</option>
+<option>Intermediate</option>
+<option>Advanced</option>
+</select>
+</div>
 
-    <div class="field">
-     <label class="label">Current skill level</label>
-     <select id="level">
-      <option>Complete beginner</option>
-      <option>Basic</option>
-      <option>Intermediate</option>
-      <option>Advanced</option>
-     </select>
-    </div>
+<div class="field">
+<label>Main goal</label>
+<select id="goal">
+<option value="">I'm not sure</option>
+<option>Get an internship</option>
+<option>Get a job</option>
+<option>Build a strong career</option>
+<option>Higher studies</option>
+<option>Start a business</option>
+</select>
+</div>
 
-    <div class="field">
-     <label class="label">Main goal</label>
-     <select id="goal">
-      <option value="">I'm not sure</option>
-      <option>Get an internship</option>
-      <option>Get a job</option>
-      <option>Build a strong career</option>
-      <option>Higher studies</option>
-      <option>Start a business</option>
-     </select>
-    </div>
+<div class="field">
+<label>Dream career</label>
+<input id="dream"
+placeholder="Optional — or type I don't know">
+</div>
 
-    <div class="field">
-     <label class="label">Dream career (optional)</label>
-     <input id="dream"
-      placeholder="Type a career or say: I don't know">
-    </div>
+</div>
 
-   </div>
+<button id="guideBtn"
+class="btn primary action"
+onclick="getCareerGuide()">
+🌱 Create My Career Roadmap
+</button>
 
-   <button
-    id="guideBtn"
-    class="btn primary action guide-actions"
-    onclick="getCareerGuide()">
-    🌱 Create My Career Roadmap
-   </button>
+<div id="guideResult" class="result">
+<div class="score">?</div>
+<h3>Your future plan will appear here.</h3>
+<p>
+CareerForge will identify suitable career paths and
+create your personalized 12-month plan.
+</p>
+</div>
 
-   <div id="guideResult" class="guide-result">
-    <div class="guide-score">?</div>
-    <h3>Your future plan will appear here.</h3>
-    <p>
-     CareerForge will recommend suitable career directions,
-     choose a primary path and create your learning roadmap.
-    </p>
-   </div>
+</div>
+</div>
+</section>
 
-  </div>
- </div>
+<section class="section" id="dashboard">
+<div class="container">
+
+<div class="title">
+<h2>📊 Career Dashboard</h2>
+<p>Know exactly where you are and what you should do next.</p>
+</div>
+
+<div class="card">
+
+<div class="formgrid">
+
+<div class="field">
+<label>Education *</label>
+<input id="dashEducation"
+placeholder="Example: B.E Computer Science">
+</div>
+
+<div class="field">
+<label>Target career</label>
+<input id="dashCareer"
+placeholder="Example: Software Developer">
+</div>
+
+<div class="field">
+<label>Current level</label>
+<select id="dashLevel">
+<option>Beginner</option>
+<option>Learning</option>
+<option>Building</option>
+<option>Internship Ready</option>
+<option>Job Ready</option>
+</select>
+</div>
+
+<div class="field">
+<label>Important skills</label>
+<input id="dashSkills"
+placeholder="Example: Python, HTML, Git">
+</div>
+
+<div class="field">
+<label>Projects completed</label>
+<input id="dashProjects"
+placeholder="Example: Expense Tracker, Portfolio">
+</div>
+
+<div class="field">
+<label>Resume score</label>
+<input id="dashResume"
+type="number"
+min="0"
+max="100"
+placeholder="Example: 72">
+</div>
+
+<div class="field">
+<label>Latest job match score</label>
+<input id="dashJob"
+type="number"
+min="0"
+max="100"
+placeholder="Example: 68">
+</div>
+
+<div class="field">
+<label>What have you completed?</label>
+<input id="dashCompleted"
+placeholder="Example: Python basics and 2 projects">
+</div>
+
+</div>
+
+<button id="dashBtn"
+class="btn primary action"
+onclick="createDashboard()">
+📊 Generate My Career Dashboard
+</button>
+
+<div id="dashResult" class="result">
+
+<div class="dashboard">
+
+<div class="dbox">
+<small>CAREER SCORE</small>
+<strong class="purple">--</strong>
+</div>
+
+<div class="dbox">
+<small>CURRENT STAGE</small>
+<strong class="cyan">STARTING</strong>
+</div>
+
+<div class="dbox">
+<small>NEXT STEP</small>
+<strong class="green">Discover</strong>
+</div>
+
+<div class="dbox">
+<small>STATUS</small>
+<strong class="orange">Ready</strong>
+</div>
+
+</div>
+
+<h3>Generate your personalized dashboard</h3>
+
+<p>
+CareerForge will analyze your current position and
+tell you what to focus on next.
+</p>
+
+</div>
+
+</div>
+</div>
 </section>
 
 <section class="section" id="resume">
- <div class="container">
+<div class="container">
 
-  <div class="section-title">
-   <h2>📄 AI Resume Analyzer</h2>
-   <p>Already have a resume? Find out how strong it is.</p>
-  </div>
+<div class="title">
+<h2>📄 AI Resume Analyzer</h2>
+<p>Improve your resume before applying.</p>
+</div>
 
-  <div class="card tool">
+<div class="card">
 
-   <div class="tool-header">
-    <div class="icon">📄</div>
-    <h3>Analyze your resume</h3>
-   </div>
+<div class="toolhead">
+<div class="icon">📄</div>
+<h3>Analyze your resume</h3>
+</div>
 
-   <textarea id="resume"
-    placeholder="Paste your complete resume here..."></textarea>
+<textarea id="resume"
+placeholder="Paste your complete resume here..."></textarea>
 
-   <button id="analyzeBtn"
-    class="btn primary action"
-    onclick="analyzeResume()">
-    🤖 Analyze With AI
-   </button>
+<button id="analyzeBtn"
+class="btn primary action"
+onclick="analyzeResume()">
+🤖 Analyze With AI
+</button>
 
-   <div id="resumeResult" class="result">
-    <div class="score">--</div>
-    <p>Your AI resume analysis will appear here.</p>
-   </div>
+<div id="resumeResult" class="result">
+<div class="score">--</div>
+<h3>Ready to analyze</h3>
+<p>Your AI resume analysis will appear here.</p>
+</div>
 
-  </div>
- </div>
+</div>
+</div>
 </section>
 
 <section class="section" id="jobs">
- <div class="container">
+<div class="container">
 
-  <div class="section-title">
-   <h2>🎯 AI Job Matcher</h2>
-   <p>Compare your resume with a real job description.</p>
-  </div>
+<div class="title">
+<h2>🎯 AI Job Matcher</h2>
+<p>See how well you match a real job.</p>
+</div>
 
-  <div class="job-grid">
+<div class="jobgrid">
 
-   <div class="card">
-    <div class="tool-header">
-     <div class="icon">📄</div>
-     <h3>Your Resume</h3>
-    </div>
+<div class="card">
+<div class="toolhead">
+<div class="icon">📄</div>
+<h3>Your Resume</h3>
+</div>
 
-    <label class="label">Paste your resume</label>
-    <textarea id="jobResume"
-     placeholder="Paste your resume here..."></textarea>
-   </div>
+<label>Paste your resume</label>
 
-   <div class="card">
-    <div class="tool-header">
-     <div class="icon">💼</div>
-     <h3>Job Description</h3>
-    </div>
+<textarea id="jobResume"
+placeholder="Paste your resume here..."></textarea>
+</div>
 
-    <label class="label">Paste the job description</label>
-    <textarea id="jobDescription"
-     placeholder="Paste the job description here..."></textarea>
-   </div>
+<div class="card">
+<div class="toolhead">
+<div class="icon">💼</div>
+<h3>Job Description</h3>
+</div>
 
-  </div>
+<label>Paste the job description</label>
 
-  <div class="card tool">
+<textarea id="jobDescription"
+placeholder="Paste the job description here..."></textarea>
+</div>
 
-   <div class="job-actions">
-    <button id="matchBtn"
-     class="btn primary"
-     onclick="matchJob()">
-     🎯 Match This Job
-    </button>
+</div>
 
-    <button class="btn clear"
-     onclick="clearJobMatcher()">
-     Clear
-    </button>
-   </div>
+<div class="card tool">
 
-   <div id="jobResult" class="match-box">
-    <div class="match-score">--%</div>
-    <h3>Ready to match</h3>
-    <p>
-     Add your resume and a job description to see
-     your compatibility score.
-    </p>
-   </div>
+<div class="jobbuttons">
 
-  </div>
- </div>
+<button id="matchBtn"
+class="btn primary"
+onclick="matchJob()">
+🎯 Match This Job
+</button>
+
+<button class="btn secondary"
+onclick="clearJobMatcher()">
+Clear
+</button>
+
+</div>
+
+<div id="jobResult" class="match">
+
+<div class="matchscore">--%</div>
+
+<h3>Ready to match</h3>
+
+<p>
+Add your resume and job description to see your
+compatibility score.
+</p>
+
+</div>
+
+</div>
+
+</div>
 </section>
 
-<section class="section" id="roadmap">
- <div class="container">
+<section class="section">
+<div class="container">
 
-  <div class="section-title">
-   <h2>🗺️ Career Journey</h2>
-   <p>The basic path from beginner to professional.</p>
-  </div>
+<div class="title">
+<h2>🗺️ Career Journey</h2>
+<p>From zero knowledge to professional.</p>
+</div>
 
-  <div class="roadmap">
-   <div class="step">
-    <strong>01</strong>
-    <span>Discover</span>
-   </div>
+<div class="roadmap">
 
-   <div class="step">
-    <strong>02</strong>
-    <span>Learn</span>
-   </div>
+<div class="step">
+<b>01</b>
+<span>Discover</span>
+</div>
 
-   <div class="step">
-    <strong>03</strong>
-    <span>Build</span>
-   </div>
+<div class="step">
+<b>02</b>
+<span>Learn</span>
+</div>
 
-   <div class="step">
-    <strong>04</strong>
-    <span>Apply</span>
-   </div>
+<div class="step">
+<b>03</b>
+<span>Build</span>
+</div>
 
-   <div class="step">
-    <strong>05</strong>
-    <span>Grow</span>
-   </div>
-  </div>
+<div class="step">
+<b>04</b>
+<span>Apply</span>
+</div>
 
- </div>
+<div class="step">
+<b>05</b>
+<span>Grow</span>
+</div>
+
+</div>
+
+</div>
 </section>
 
 <section class="container">
- <div class="cta">
-  <h2>Your future starts with one decision.</h2>
-  <p>
-   You don't need to know everything today.
-   You only need to know your next step.
-  </p>
-  <a class="btn primary" href="#zero">
-   🌱 Find My Direction
-  </a>
- </div>
+
+<div class="cta">
+
+<h2>Your next step is enough.</h2>
+
+<p>
+You don't need to know your entire future today.
+CareerForge helps you discover the next step and
+keep moving forward.
+</p>
+
+<a class="btn primary" href="#zero">
+🌱 Find My Direction
+</a>
+
+</div>
+
 </section>
 
-</main>
-
 <footer>
- <div class="container">
-  CareerForge AI • Discover • Learn • Build • Apply • Grow
- </div>
+CareerForge AI • Discover • Learn • Build • Apply • Grow
 </footer>
 
 <script>
+
 function escapeHtml(text){
- return String(text).replace(
-  /[&<>"']/g,
-  function(char){
-   return {
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt;",
-    '"':"&quot;",
-    "'":"&#039;"
-   }[char];
-  }
- );
+return String(text).replace(
+/[&<>"']/g,
+function(char){
+return {
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+}[char];
 }
+);
+}
+
 
 async function getCareerGuide(){
 
- const education=document.getElementById("education").value.trim();
- const year=document.getElementById("year").value;
- const interests=document.getElementById("interests").value.trim();
- const strengths=document.getElementById("strengths").value.trim();
- const dislikes=document.getElementById("dislikes").value.trim();
- const preference=document.getElementById("preference").value;
- const time=document.getElementById("time").value;
- const goal=document.getElementById("goal").value;
- const level=document.getElementById("level").value;
- const dream=document.getElementById("dream").value.trim();
+const education=document.getElementById("education").value.trim();
 
- const result=document.getElementById("guideResult");
- const button=document.getElementById("guideBtn");
+if(!education){
+alert("Please enter what you are studying.");
+return;
+}
 
- if(!education){
+const btn=document.getElementById("guideBtn");
+const result=document.getElementById("guideResult");
 
-  result.innerHTML=
-   '<div class="guide-score">!</div>'+
-   '<h3>Education Required</h3>'+
-   '<p>Tell us what you are studying first.</p>';
+btn.disabled=true;
+btn.textContent="🤖 Building Your Future...";
 
-  return;
- }
+result.innerHTML=
+'<div class="loading">'+
+'<span class="dot"></span>'+
+'AI is creating your career direction...'+
+'</div>'+
+'<p>Analyzing your interests, strengths and goals.</p>';
 
- button.disabled=true;
- button.textContent="🤖 Building Your Future Plan...";
+try{
 
- result.innerHTML=
-  '<div class="loading">'+
-  '<span class="dot"></span>'+
-  'AI is understanding your career direction...'+
-  '</div>'+
-  '<p>Finding suitable careers and creating your personalized roadmap.</p>';
+const response=await fetch(
+"/api/career-guide",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
 
- try{
+education:education,
 
-  const response=await fetch(
-   "/api/career-guide",
-   {
-    method:"POST",
-    headers:{
-     "Content-Type":"application/json"
-    },
-    body:JSON.stringify({
-     education:education,
-     year:year,
-     interests:interests,
-     strengths:strengths,
-     dislikes:dislikes,
-     preference:preference,
-     time:time,
-     goal:goal,
-     level:level,
-     dream:dream
-    })
-   }
-  );
+year:document.getElementById("year").value,
 
-  const data=await response.json();
+interests:
+document.getElementById("interests").value.trim(),
 
-  if(!response.ok){
-   throw new Error(
-    data.error||"Career guidance failed"
-   );
-  }
+strengths:
+document.getElementById("strengths").value.trim(),
 
-  result.innerHTML=
-   '<div class="guide-score">✓</div>'+
-   '<h3>🎯 Your Career Plan Is Ready</h3>'+
-   '<div style="white-space:pre-wrap">'+
-   escapeHtml(
-    data.answer||
-    "No career plan returned."
-   )+
-   '</div>';
+dislikes:
+document.getElementById("dislikes").value.trim(),
 
-  result.scrollIntoView({
-   behavior:"smooth",
-   block:"start"
-  });
+preference:
+document.getElementById("preference").value,
 
- }catch(error){
+time:
+document.getElementById("time").value,
 
-  result.innerHTML=
-   '<div class="guide-score">!</div>'+
-   '<h3>Guidance Failed</h3>'+
-   '<p>'+
-   escapeHtml(error.message)+
-   '</p>'+
-   '<p>Please check that the latest Render deployment has completed.</p>';
+goal:
+document.getElementById("goal").value,
 
- }finally{
+level:
+document.getElementById("level").value,
 
-  button.disabled=false;
-  button.textContent="🌱 Create My Career Roadmap";
+dream:
+document.getElementById("dream").value.trim()
 
- }
+})
+}
+);
+
+const data=await response.json();
+
+if(!response.ok){
+throw new Error(
+data.error||"Career guidance failed"
+);
+}
+
+result.innerHTML=
+'<div class="score">✓</div>'+
+'<h3>🎯 Your Career Plan</h3>'+
+'<div style="white-space:pre-wrap">'+
+escapeHtml(data.answer||"No plan returned.")+
+'</div>';
+
+result.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}catch(error){
+
+result.innerHTML=
+'<div class="score">!</div>'+
+'<h3>Guidance Failed</h3>'+
+'<p>'+escapeHtml(error.message)+'</p>';
+
+}finally{
+
+btn.disabled=false;
+btn.textContent="🌱 Create My Career Roadmap";
+
+}
+}
+
+
+async function createDashboard(){
+
+const education=
+document.getElementById("dashEducation").value.trim();
+
+if(!education){
+alert("Please enter your education.");
+return;
+}
+
+const btn=document.getElementById("dashBtn");
+const result=document.getElementById("dashResult");
+
+btn.disabled=true;
+btn.textContent="🤖 Building Dashboard...";
+
+result.innerHTML=
+'<div class="loading">'+
+'<span class="dot"></span>'+
+'AI is analyzing your career progress...'+
+'</div>'+
+'<p>Calculating priorities and your next milestone.</p>';
+
+try{
+
+const response=await fetch(
+"/api/career-dashboard",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+
+education:education,
+
+career:
+document.getElementById("dashCareer").value.trim(),
+
+level:
+document.getElementById("dashLevel").value,
+
+skills:
+document.getElementById("dashSkills").value.trim(),
+
+projects:
+document.getElementById("dashProjects").value.trim(),
+
+resume_score:
+document.getElementById("dashResume").value,
+
+job_score:
+document.getElementById("dashJob").value,
+
+completed:
+document.getElementById("dashCompleted").value.trim()
+
+})
+}
+);
+
+const data=await response.json();
+
+if(!response.ok){
+throw new Error(
+data.error||"Dashboard generation failed"
+);
+}
+
+result.innerHTML=
+'<div class="score">✓</div>'+
+'<h3>📊 Your Career Dashboard</h3>'+
+'<div style="white-space:pre-wrap">'+
+escapeHtml(data.answer||"No dashboard returned.")+
+'</div>';
+
+result.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}catch(error){
+
+result.innerHTML=
+'<div class="score">!</div>'+
+'<h3>Dashboard Failed</h3>'+
+'<p>'+escapeHtml(error.message)+'</p>';
+
+}finally{
+
+btn.disabled=false;
+btn.textContent="📊 Generate My Career Dashboard";
+
+}
 }
 
 
 async function analyzeResume(){
 
- const resume=document.getElementById("resume").value.trim();
- const result=document.getElementById("resumeResult");
- const button=document.getElementById("analyzeBtn");
+const resume=
+document.getElementById("resume").value.trim();
 
- if(!resume){
+const result=
+document.getElementById("resumeResult");
 
-  result.innerHTML=
-   '<div class="score">!</div>'+
-   '<h3>Resume Required</h3>'+
-   '<p>Please paste your resume first.</p>';
+const btn=
+document.getElementById("analyzeBtn");
 
-  return;
- }
+if(!resume){
+alert("Please paste your resume.");
+return;
+}
 
- button.disabled=true;
- button.textContent="🤖 AI Analyzing...";
+btn.disabled=true;
+btn.textContent="🤖 Analyzing...";
 
- result.innerHTML=
-  '<div class="loading">'+
-  '<span class="dot"></span>'+
-  'AI is analyzing your resume...'+
-  '</div>'+
-  '<p>Checking skills, projects, ATS quality and career roles.</p>';
+result.innerHTML=
+'<div class="loading">'+
+'<span class="dot"></span>'+
+'AI is analyzing your resume...'+
+'</div>';
 
- try{
+try{
 
-  const response=await fetch(
-   "/api/analyze-resume",
-   {
-    method:"POST",
-    headers:{
-     "Content-Type":"application/json"
-    },
-    body:JSON.stringify({
-     resume:resume
-    })
-   }
-  );
+const response=await fetch(
+"/api/analyze-resume",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+resume:resume
+})
+}
+);
 
-  const data=await response.json();
+const data=await response.json();
 
-  if(!response.ok){
-   throw new Error(
-    data.error||"AI analysis failed"
-   );
-  }
+if(!response.ok){
+throw new Error(
+data.error||"Analysis failed"
+);
+}
 
-  result.innerHTML=
-   '<div class="score">✓</div>'+
-   '<h3>AI Analysis Complete</h3>'+
-   '<div style="white-space:pre-wrap">'+
-   escapeHtml(
-    data.answer||"No analysis returned."
-   )+
-   '</div>';
+result.innerHTML=
+'<div class="score">✓</div>'+
+'<h3>AI Analysis Complete</h3>'+
+'<div style="white-space:pre-wrap">'+
+escapeHtml(data.answer||"No analysis.")+
+'</div>';
 
- }catch(error){
+}catch(error){
 
-  result.innerHTML=
-   '<div class="score">!</div>'+
-   '<h3>Analysis Failed</h3>'+
-   '<p>'+
-   escapeHtml(error.message)+
-   '</p>';
+result.innerHTML=
+'<div class="score">!</div>'+
+'<h3>Analysis Failed</h3>'+
+'<p>'+escapeHtml(error.message)+'</p>';
 
- }finally{
+}finally{
 
-  button.disabled=false;
-  button.textContent="🤖 Analyze With AI";
+btn.disabled=false;
+btn.textContent="🤖 Analyze With AI";
 
- }
+}
 }
 
 
 async function matchJob(){
 
- const resume=document.getElementById("jobResume").value.trim();
- const job=document.getElementById("jobDescription").value.trim();
- const result=document.getElementById("jobResult");
- const button=document.getElementById("matchBtn");
+const resume=
+document.getElementById("jobResume").value.trim();
 
- if(!resume){
+const job=
+document.getElementById("jobDescription").value.trim();
 
-  result.innerHTML=
-   '<div class="match-score">!</div>'+
-   '<h3>Resume Required</h3>'+
-   '<p>Please paste your resume first.</p>';
+const result=
+document.getElementById("jobResult");
 
-  return;
- }
+const btn=
+document.getElementById("matchBtn");
 
- if(!job){
+if(!resume){
+alert("Please paste your resume.");
+return;
+}
 
-  result.innerHTML=
-   '<div class="match-score">!</div>'+
-   '<h3>Job Description Required</h3>'+
-   '<p>Please paste the job description.</p>';
+if(!job){
+alert("Please paste the job description.");
+return;
+}
 
-  return;
- }
- button.disabled=true;
- button.textContent="🤖 Matching...";
+btn.disabled=true;
+btn.textContent="🤖 Matching...";
 
- result.innerHTML=
-  '<div class="loading">'+
-  '<span class="dot"></span>'+
-  'AI is comparing your resume with the job...'+
-  '</div>'+
-  '<p>Checking skills, experience and ATS keywords.</p>';
+result.innerHTML=
+'<div class="loading">'+
+'<span class="dot"></span>'+
+'AI is comparing your resume with the job...'+
+'</div>'+
+'<p>Checking skills, experience and ATS keywords.</p>';
 
- try{
+try{
 
-  const response=await fetch(
-   "/api/job-match",
-   {
-    method:"POST",
-    headers:{
-     "Content-Type":"application/json"
-    },
-    body:JSON.stringify({
-     resume:resume,
-     job:job
-    })
-   }
-  );
+const response=await fetch(
+"/api/job-match",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+resume:resume,
+job:job
+})
+}
+);
 
-  const data=await response.json();
+const data=await response.json();
 
-  if(!response.ok){
-   throw new Error(
-    data.error||"Job matching failed"
-   );
-  }
+if(!response.ok){
+throw new Error(
+data.error||"Job matching failed"
+);
+}
 
-  const answer=data.answer||"No analysis returned.";
-  const score=findScore(answer);
+const answer=data.answer||"No analysis returned.";
+const score=findScore(answer);
 
-  result.innerHTML=
-   '<div class="match-score">'+
-   (score!==null?score:"--")+
-   '%</div>'+
-   '<div class="progress">'+
-   '<div id="matchProgress"></div>'+
-   '</div>'+
-   '<h3>🎯 AI Job Match Analysis</h3>'+
-   '<div style="white-space:pre-wrap">'+
-   escapeHtml(answer)+
-   '</div>';
+result.innerHTML=
+'<div class="matchscore">'+
+(score===null?"--":score)+
+'%</div>'+
+'<div class="progress">'+
+'<div id="matchProgress"></div>'+
+'</div>'+
+'<h3>🎯 Job Match Analysis</h3>'+
+'<div style="white-space:pre-wrap">'+
+escapeHtml(answer)+
+'</div>';
 
-  if(score!==null){
+if(score!==null){
 
-   setTimeout(function(){
+setTimeout(function(){
 
-    const bar=
-     document.getElementById("matchProgress");
+const bar=
+document.getElementById("matchProgress");
 
-    if(bar){
-     bar.style.width=
-      Math.max(0,Math.min(100,score))+
-      "%";
-    }
+if(bar){
+bar.style.width=score+"%";
+}
 
-   },100);
-  }
+},100);
 
- }catch(error){
+}
 
-  result.innerHTML=
-   '<div class="match-score">!</div>'+
-   '<h3>Matching Failed</h3>'+
-   '<p>'+
-   escapeHtml(error.message)+
-   '</p>'+
-   '<p>Please check that the latest Render deployment has completed.</p>';
+}catch(error){
 
- }finally{
+result.innerHTML=
+'<div class="matchscore">!</div>'+
+'<h3>Matching Failed</h3>'+
+'<p>'+
+escapeHtml(error.message)+
+'</p>';
 
-  button.disabled=false;
-  button.textContent="🎯 Match This Job";
+}finally{
 
- }
+btn.disabled=false;
+btn.textContent="🎯 Match This Job";
+
+}
 }
 
 
 function findScore(text){
 
- const patterns=[
-  /MATCH SCORE\s*[:\-]\s*(\d{1,3})\s*%/i,
-  /MATCH\s*[:\-]\s*(\d{1,3})\s*%/i,
-  /(\d{1,3})\s*%\s*(?:match|matched)/i,
-  /score\s*(?:is|:|-)\s*(\d{1,3})/i
- ];
+const patterns=[
+/MATCH SCORE\s*[:\-]\s*(\d{1,3})\s*%/i,
+/MATCH\s*[:\-]\s*(\d{1,3})\s*%/i,
+/(\d{1,3})\s*%\s*(?:match|matched)/i
+];
 
- for(let i=0;i<patterns.length;i++){
+for(let i=0;i<patterns.length;i++){
 
-  const match=text.match(patterns[i]);
+const m=text.match(patterns[i]);
 
-  if(match){
+if(m){
 
-   const value=parseInt(match[1],10);
+const n=parseInt(m[1],10);
 
-   if(value>=0&&value<=100){
-    return value;
-   }
-  }
- }
+if(n>=0&&n<=100){
+return n;
+}
 
- return null;
+}
+}
+
+return null;
 }
 
 
 function clearJobMatcher(){
 
- document.getElementById("jobResume").value="";
- document.getElementById("jobDescription").value="";
+document.getElementById("jobResume").value="";
+document.getElementById("jobDescription").value="";
 
- document.getElementById("jobResult").innerHTML=
-  '<div class="match-score">--%</div>'+
-  '<h3>Ready to match</h3>'+
-  '<p>Add your resume and a job description to see your compatibility score.</p>';
+document.getElementById("jobResult").innerHTML=
+'<div class="matchscore">--%</div>'+
+'<h3>Ready to match</h3>'+
+'<p>Add your resume and job description to see your compatibility score.</p>';
 }
+
 </script>
 
 </body>
 </html>
- 
